@@ -1,2 +1,0 @@
-# ReactNativeAppDev
-App development project
