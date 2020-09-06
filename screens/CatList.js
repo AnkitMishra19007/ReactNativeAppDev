@@ -8,78 +8,75 @@ export default function CatList({ navigation }) {
     return (
         <View style={styles.container}>
 
-            <View style={{ flexDirection: 'row', margin: 30, marginBottom: 0, justifyContent: "space-between", marginHorizontal: 50, }}>
+            <View style={styles.iconView}>
                 <TouchableOpacity onPress={() => navigation.navigate('BathScreen')}>
                     <Image
-                        style={styles.cat1}
+                        style={styles.icons}
                         source={require('../assets/bath.png')}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('CerealsScreen')}>
                     <Image
-                        style={styles.cat2}
+                        style={styles.icons}
                         source={require('../assets/cereal.png')}
                     />
                 </TouchableOpacity>
 
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 0, marginHorizontal: 80, }}>
-                <Text style={styles.catText}  >
+            <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
+                <Text style={styles.iconDescription}  >
                     Bath
                 </Text>
-                <Text style={styles.catText} >
+                <Text style={styles.iconDescription} >
                     Cereals
                 </Text>
             </View>
-            <View style={{ flexDirection: 'row', margin: 30, marginTop: 20, marginBottom: 0, justifyContent: "space-between", marginHorizontal: 50 }}>
-                <TouchableOpacity onPress={() => navigation.navigate('DairyScreen')}>
+            <View style={styles.iconView}>
+                <TouchableOpacity onPress={() => navigation.navigate('BathScreen')}>
                     <Image
-                        style={styles.cat1}
-                        source={require('../assets/dairy-products.png')}
+                        style={styles.icons}
+                        source={require('../assets/dairy.png')}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('BeautyScreen')}>
+                <TouchableOpacity onPress={() => navigation.navigate('CerealsScreen')}>
                     <Image
-                        style={styles.cat2}
-                        source={require('../assets/skincare.png')}
+                        style={styles.icons}
+                        source={require('../assets/beauty.png')}
                     />
                 </TouchableOpacity>
+
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 0, marginHorizontal: 80, }}>
-                <Text style={styles.catText} >
+            <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
+                <Text style={styles.iconDescription}  >
                     Dairy
                 </Text>
-                <Text style={styles.catText}>
+                <Text style={styles.iconDescription} >
                     Beauty
                 </Text>
             </View>
-            <View style={{ flexDirection: 'row', margin: 30, marginTop: 20, justifyContent: "space-between", marginBottom: 0, marginHorizontal: 50, }}>
-                <TouchableOpacity onPress={() => navigation.navigate('SnacksScreen')}>
+            <View style={styles.iconView}>
+                <TouchableOpacity onPress={() => navigation.navigate('BathScreen')}>
                     <Image
-                        style={styles.cat1}
+                        style={styles.icons}
                         source={require('../assets/snacks.png')}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('BeveragesScreen')}>
+                <TouchableOpacity onPress={() => navigation.navigate('CerealsScreen')}>
                     <Image
-                        style={styles.cat2}
-                        source={require('../assets/soft-drinks.png')}
+                        style={styles.icons}
+                        source={require('../assets/beverages.png')}
                     />
                 </TouchableOpacity>
+
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 0, marginHorizontal: 50, }}>
-                <Text style={{
-                    fontSize: 24,
-                    fontWeight: 'bold', marginLeft: 26
-                }}>
+            <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
+                <Text style={styles.iconDescription}  >
                     Snacks
-        </Text>
-                <Text style={styles.catText}>
+                </Text>
+                <Text style={styles.iconDescription} >
                     Beverages
-        </Text>
+                </Text>
             </View>
-
-
         </View >
     );
 }
@@ -88,41 +85,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
+        justifyContent: "space-evenly"
     },
-
-    content: {
-        padding: 40,
+    iconView: {
+        flexDirection: 'row', justifyContent: "space-around",
     },
-    list: {
-        marginTop: 5,
-    },
-    item: {
-        textAlign: "center",
-        flex: 1,
-        marginHorizontal: 10,
-        marginTop: 24,
-        padding: 30,
-        backgroundColor: "pink",
-        fontSize: 24,
-    },
-    cat1: {
+    icons: {
         width: 135,
         height: 135,
     },
-    cat2: {
-        width: 120,
-        height: 120,
-
-    },
-
-    catBox: {
-
-        marginHorizontal: 40,
-        borderRadius: 8,
-        color: 'pink',
-    },
-    catText: {
-        fontSize: 24,
+    iconDescription: {
+        fontSize: 20,
         fontWeight: 'bold'
     }
 });
