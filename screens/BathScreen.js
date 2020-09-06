@@ -3,8 +3,7 @@ import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 
 
 
-export default function CerealsScreen() {
-
+export default function BathScreen() {
 
     return (
         <View style={styles.container}>
