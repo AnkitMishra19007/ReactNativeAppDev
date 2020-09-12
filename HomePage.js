@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity} from "react-native";
-import Header from "./components/header";
 
-
-export default function App() {
-
-
+export default function App() { 
+    
     return (
+        
         <View style={styles.container}>
 
         <View style={styles.imgcon}>
@@ -28,7 +26,7 @@ export default function App() {
         </View>
 
         <View style={styles.con3}>
-            <TouchableOpacity style={styles.feed}>
+            <TouchableOpacity style={styles.feed} >
                 <Text style={styles.txt2}>About Us</Text>
             </TouchableOpacity>
 
