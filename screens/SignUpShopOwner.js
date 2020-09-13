@@ -10,7 +10,7 @@ export default function SignUpShopOwner() {
         <View style={styles.container}>
             <ScrollView>
                 <View style={styles.upper}>
-                    <Text style={styles.head}>Sign Up Shop Owner</Text>
+                    
                     <KeyboardAvoidingView>
                         <Text style={styles.main}>Shop name:</Text>
                         <TextInput
