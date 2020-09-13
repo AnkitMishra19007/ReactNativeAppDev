@@ -8,7 +8,7 @@ export default function App() {
         <View style={styles.container}>
 
             <View style={styles.upper}>
-                <Text style={styles.head}>LOG IN</Text>
+                <Text style={styles.head}>LOG IN Shop Owner</Text>
                 <Text style={styles.main}>Shop ID:</Text>
                 <KeyboardAvoidingView>
                 <TextInput
