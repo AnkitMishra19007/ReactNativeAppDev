@@ -9,7 +9,7 @@ export default function App() {
         <View style={styles.container}>
             <ScrollView>
                 <View style={styles.upper}>
-                    <Text style={styles.head}>Sign Up Customer</Text>
+                    
                     <KeyboardAvoidingView>
                         <Text style={styles.main}>Username:</Text>
                         <TextInput
