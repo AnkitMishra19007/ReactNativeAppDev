@@ -8,7 +8,7 @@ export default function LogInCustomer({ navigation }) {
         <View style={styles.container}>
 
             <View style={styles.upper}>
-                <Text style={styles.head}>LOG IN Customer</Text>
+                
                 <Text style={styles.main}>Username:</Text>
                 <KeyboardAvoidingView>
                     <TextInput
