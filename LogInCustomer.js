@@ -12,7 +12,7 @@ export default function App() {
                 <Text style={styles.main}>Username:</Text>
                 <KeyboardAvoidingView>
                 <TextInput
-                    placeholder="ShopID"
+                    placeholder="Username"
                     placeholderTextColor= '#808080'
                     underlineColorAndroid={'transparent'}
                     style={styles.textInput}
