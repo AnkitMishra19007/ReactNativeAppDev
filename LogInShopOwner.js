@@ -36,7 +36,7 @@ export default function App() {
 
             <View style={styles.lower}>
                 <Text style={styles.promt}>Dont have an account?</Text>
-                <View style={styles.con3}>
+                <View>
                     <TouchableOpacity style={styles.feed} >
                         <Text style={styles.signUp}>Sign Up</Text>
                     </TouchableOpacity>
