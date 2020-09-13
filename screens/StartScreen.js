@@ -59,14 +59,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     con3: {
-        flex: 0.5,
+        flex: 0.7,
         backgroundColor: '#c9b5aa',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'baseline',
     },
     img: {
-        marginTop: 30,
         resizeMode: 'contain',
     },
     title: {
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
         color: 'teal',
     },
     shop: {
-        margin: 27,
+        margin: 7,
         borderRadius: 30,
         borderColor: 'teal',
         borderWidth: 3,
