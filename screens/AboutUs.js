@@ -17,7 +17,7 @@ export default function AboutUs() {
                 Nitish Kumar{'\n'}
                 Abhishek Ranjan{'\n'}
                 Swapnil Deb{'\n'}
-                Pavitra Jain{'\n'}</Text>
+                Pavitra Jain</Text>
 
 
                 </Text>
@@ -29,6 +29,7 @@ export default function AboutUs() {
 
 const styles = StyleSheet.create({
     container:{
+        flex: 1,
         paddingLeft: 10,
         paddingRight:10,
         paddingTop: 20,
