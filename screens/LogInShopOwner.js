@@ -9,7 +9,7 @@ export default function LogInShopOwner({ navigation }) {
         <View style={styles.container}>
 
             <View style={styles.upper}>
-                <Text style={styles.head}>LOG IN</Text>
+                
                 <Text style={styles.main}>Shop ID:</Text>
                 <KeyboardAvoidingView>
                     <TextInput
