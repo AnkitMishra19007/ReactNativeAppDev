@@ -6,7 +6,7 @@ import LogInCustomer from '../screens/LogInCustomer';
 import AboutUs from '../screens/AboutUs';
 import ContactUs from '../screens/ContactUs';
 import SignUpShopOwner from '../screens/SignUpShopOwner';
-import SignUpCustomer from '../screens/ContactUs';
+import SignUpCustomer from '../screens/SignUpCustomer';
 
 
 const screens = {
@@ -14,24 +14,31 @@ const screens = {
         screen: StartScreen,
         navigationOptions: {
             title: 'KI₹ANAA',
-        },
+            headerTitleStyle: {
+                textAlign: "center",
+                fontSize: 32,
+            },
 
+        }
     },
     LogInShopOwner: {
         screen: LogInShopOwner,
         navigationOptions: {
-            title: '',
+            title: 'LOG IN',
         },
-
     },
     LogInCustomer: {
         screen: LogInCustomer,
         navigationOptions: {
-            title: '',
+            title: 'LOG IN Customer',
         },
     },
     AboutUs: {
         screen: AboutUs,
+        navigationOptions: {
+            title: 'About Us',
+        },
+
     },
     ContactUs: {
         screen: ContactUs,
@@ -39,13 +46,13 @@ const screens = {
     SignUpShopOwner: {
         screen: SignUpShopOwner,
         navigationOptions: {
-            title: '',
+            title: 'Sign Up Shop Owner',
         },
     },
     SignUpCustomer: {
         screen: SignUpCustomer,
         navigationOptions: {
-            title: '',
+            title: 'Sign Up Customer',
         },
     }
 
@@ -56,14 +63,14 @@ const StartStack = createStackNavigator(screens, {
             backgroundColor: '#c9b5aa',
         },
         headerTitleStyle: {
-            textAlign: 'center',
             flex: 1,
-            fontSize: 32,
+            fontSize: 22,
             fontWeight: 'normal',
-            letterSpacing: 1.3,
 
         },
         headerTintColor: 'teal'
+
+
     }
 });
 
