@@ -37,7 +37,7 @@ export default function LogInCustomer({ navigation }) {
             <View style={styles.lower}>
                 <Text style={styles.promt}>Dont have an account?</Text>
                 <View>
-                    <TouchableOpacity style={styles.feed} onPress={() => navigation.navigate('SignUpShopOwner')} >
+                    <TouchableOpacity style={styles.feed} onPress={() => navigation.navigate('SignUpCustomer')} >
                         <Text style={styles.signUp}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
