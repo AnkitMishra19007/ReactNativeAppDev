@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingVi
 import { ScrollView } from "react-native-gesture-handler";
 
 
-export default function App() {
+export default function SignUpCustomer() {
 
     return (
         <View style={styles.container}>
@@ -48,7 +48,7 @@ export default function App() {
                     </KeyboardAvoidingView>
 
                     <TouchableOpacity style={styles.feed2} >
-                        <Text style={styles.signUp}>Log In</Text>
+                        <Text style={styles.signUp}>Sign Up</Text>
                     </TouchableOpacity>
 
 
@@ -64,8 +64,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     upper: {
-        paddingTop: 30,
-        flex: 3,
+        flex: 1,
         paddingBottom: 20,
         backgroundColor: '#c9b5aa',
     },
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
     },
     main: {
-        marginTop: 25,
+        marginTop: 15,
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 20,
