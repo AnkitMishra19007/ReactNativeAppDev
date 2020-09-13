@@ -56,7 +56,7 @@ export default function SignUpShopOwner() {
                     </KeyboardAvoidingView>
 
                     <TouchableOpacity style={styles.feed2} >
-                        <Text style={styles.signUp}>Log In</Text>
+                        <Text style={styles.signUp}>Sign Up</Text>
                     </TouchableOpacity>
 
 
