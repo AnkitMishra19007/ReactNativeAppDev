@@ -72,8 +72,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     upper: {
-        paddingTop: 30,
-        flex: 3,
+        flex: 1,
         paddingBottom: 20,
         backgroundColor: '#c9b5aa',
     },
@@ -107,7 +106,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
     },
     main: {
-        marginTop: 25,
+        marginTop: 15,
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 20,
