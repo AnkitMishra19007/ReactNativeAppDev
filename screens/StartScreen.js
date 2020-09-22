@@ -9,7 +9,7 @@ export default function StartScreen({ navigation }) {
 
             <View style={styles.imgcon}>
                 <View style={styles.img}>
-                    <Image source={require('../assets/newLogo.png')} />
+                    <Image source={require('../assets/Kiranaa.png')} />
 
                 </View>
             </View>
@@ -90,10 +90,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: 'teal',
         borderWidth: 2,
-        padding: 14,
+        padding: 12,
     },
     txt2: {
-        fontSize: 11,
+        fontSize: 15,
         color: 'teal',
         fontWeight: 'bold',
     },
