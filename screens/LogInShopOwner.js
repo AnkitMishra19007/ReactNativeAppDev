@@ -1,51 +1,69 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from "react-native";
+import * as firebase from 'firebase'
 
 
 
-export default function LogInShopOwner({ navigation }) {
+export default class LogInShopOwner extends React.Component {
+    state = {
+        email: "",
+        password: ""
+    }
+    userSignin(email, pass) {
+        firebase.auth().signInWithEmailAndPassword(email, pass)
+            .then(() => {
+                this.props.navigation.replace('Drawer')
+            })
+            .catch(error => {
+                Alert.alert(error.message)
+            })
+    }
 
-    return (
-        <View style={styles.container}>
+    render() {
+        return (
+            <View style={styles.container}>
 
-            <View style={styles.upper}>
-                
-                <Text style={styles.main}>Shop ID:</Text>
-                <KeyboardAvoidingView>
-                    <TextInput
-                        placeholder="ShopID"
-                        placeholderTextColor='#808080'
-                        underlineColorAndroid={'transparent'}
-                        style={styles.textInput}
-                    />
-                    <Text style={styles.main}>Password:</Text>
-                    <TextInput
-                        placeholder="Password"
-                        placeholderTextColor='#808080'
+                <View style={styles.upper}>
+                    {/* <Text style={styles.head}>LOG IN</Text> */}
+                    <Text style={styles.main}>Shop ID:</Text>
+                    <KeyboardAvoidingView>
+                        <TextInput
+                            placeholder="ShopID"
+                            placeholderTextColor='#808080'
+                            underlineColorAndroid={'transparent'}
+                            style={styles.textInput}
+                            onChangeText={(text) => this.setState({ email: text })}
+                        />
+                        <Text style={styles.main}>Password:</Text>
+                        <TextInput
+                            placeholder="Password"
+                            placeholderTextColor='#808080'
 
-                        secureTextEntry={true}
-                        style={styles.textInput}
-                    />
-                </KeyboardAvoidingView>
+                            secureTextEntry={true}
+                            onChangeText={(text) => this.setState({ password: text })}
+                            style={styles.textInput}
+                        />
+                    </KeyboardAvoidingView>
 
-                <TouchableOpacity style={styles.feed2} >
-                    <Text style={styles.signUp}>Log In</Text>
-                </TouchableOpacity>
-
-
-            </View>
-
-            <View style={styles.lower}>
-                <Text style={styles.promt}>Dont have an account?</Text>
-                <View style={styles.con3}>
-                    <TouchableOpacity style={styles.feed} onPress={() => navigation.navigate('SignUpShopOwner')} >
-                        <Text style={styles.signUp}>Sign Up</Text>
+                    <TouchableOpacity style={styles.feed2} onPress={() => this.userSignin(this.state.email, this.state.password)} >
+                        <Text style={styles.signUp}>Log In</Text>
                     </TouchableOpacity>
+
+
                 </View>
 
+                <View style={styles.lower}>
+                    <Text style={styles.promt}>Dont have an account?</Text>
+                    <View style={styles.con3}>
+                        <TouchableOpacity style={styles.feed} onPress={() => this.props.navigation.replace('SignUpShopOwner')} >
+                            <Text style={styles.signUp}>Sign Up</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
             </View>
-        </View>
-    );
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -54,11 +72,12 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     upper: {
+        paddingTop: 30,
         flex: 3,
         backgroundColor: '#c9b5aa',
     },
     lower: {
-        flex: 1.6,
+        flex: 1,
         alignContent: 'center',
         backgroundColor: '#c9b5aa'
     },
@@ -80,7 +99,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
     },
     main: {
-        marginTop: 15,
+        marginTop: 30,
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 25,
