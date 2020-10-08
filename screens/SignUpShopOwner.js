@@ -1,69 +1,91 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-//import { Picker } from '@react-native-community/picker';
+import * as firebase from 'firebase'
 
 
-export default function SignUpShopOwner() {
+export default class SignUpShopOwner extends React.Component {
 
-    return (
-        <View style={styles.container}>
-            <ScrollView>
-                <View style={styles.upper}>
-                    
-                    <KeyboardAvoidingView>
-                        <Text style={styles.main}>Shop name:</Text>
-                        <TextInput
-                            placeholder="Shop name"
-                            placeholderTextColor='#808080'
-                            style={styles.textInput}
-                        />
-                        <Text style={styles.main}>Shop Owner name:</Text>
-                        <TextInput
-                            placeholder="Shop's Owner"
-                            placeholderTextColor='#808080'
-                            style={styles.textInput}
-                        />
-                        <Text style={styles.main}>E mail:</Text>
-                        <TextInput
-                            placeholder="E mail"
-                            placeholderTextColor='#808080'
-                            keyboardType='email-address'
-                            style={styles.textInput}
-                        />
-                        <Text style={styles.main}>Phone Number:</Text>
-                        <TextInput
-                            placeholder="phone number"
-                            placeholderTextColor='#808080'
-                            keyboardType='number-pad'
-                            style={styles.textInput}
-                        />
-                        <Text style={styles.main}>Password:</Text>
-                        <TextInput
-                            placeholder="Password"
-                            placeholderTextColor='#808080'
-                            secureTextEntry={true}
-                            style={styles.textInput}
-                        />
+    state = {
+        email: "",
+        password: ""
+    }
 
-                        <Text style={styles.main}>Shop Address:</Text>
-                        <TextInput
-                            placeholder="Shop Address"
-                            placeholderTextColor='#808080'
-                            multiline
-                            style={styles.textInput2}
-                        />
-                    </KeyboardAvoidingView>
+    userSignup(email, pass) {
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+            .then(() => {
+                this.props.navigation.replace('Drawer')
+            })
+            .catch(error => {
+                Alert.alert(error.message)
+            })
 
-                    <TouchableOpacity style={styles.feed2} >
-                        <Text style={styles.signUp}>Sign Up</Text>
-                    </TouchableOpacity>
+    }
+    render() {
+        return (
+            <View style={styles.container} >
+                <ScrollView>
+                    <View style={styles.upper}>
+                        {/* <Text style={styles.head}>Sign Up Shop Owner</Text> */}
+                        <KeyboardAvoidingView>
+                            <Text style={styles.main}>Shop name:</Text>
+                            <TextInput
+                                placeholder="Shop name"
+                                placeholderTextColor='#808080'
+                                style={styles.textInput}
+                            />
+                            <Text style={styles.main}>Shop Owner name:</Text>
+                            <TextInput
+                                placeholder="Shop's Owner"
+                                placeholderTextColor='#808080'
+                                style={styles.textInput}
+                            />
+                            <Text style={styles.main}>E mail:</Text>
+                            <TextInput
+                                placeholder="E mail"
+                                placeholderTextColor='#808080'
+                                keyboardType='email-address'
+                                style={styles.textInput}
+                                value={this.state.email}
+                                onChangeText={(text) => this.setState({ email: text })}
+                            />
+                            <Text style={styles.main}>Phone Number:</Text>
+                            <TextInput
+                                placeholder="phone number"
+                                placeholderTextColor='#808080'
+                                keyboardType='number-pad'
+                                style={styles.textInput}
+
+                            />
+                            <Text style={styles.main}>Password:</Text>
+                            <TextInput
+                                placeholder="Password"
+                                placeholderTextColor='#808080'
+                                secureTextEntry={true}
+                                style={styles.textInput}
+                                value={this.state.password}
+                                onChangeText={(text) => this.setState({ password: text })}
+                            />
+
+                            <Text style={styles.main}>Shop Address:</Text>
+                            <TextInput
+                                placeholder="Shop Address"
+                                placeholderTextColor='#808080'
+                                multiline
+                                style={styles.textInput2}
+                            />
+                        </KeyboardAvoidingView>
+
+                        <TouchableOpacity style={styles.feed2} onPress={() => this.userSignup(this.state.email, this.state.password)}>
+                            <Text style={styles.signUp}>Log In</Text>
+                        </TouchableOpacity>
 
 
-                </View>
-            </ScrollView>
-        </View>
-    );
+                    </View>
+                </ScrollView>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -72,7 +94,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     upper: {
-        flex: 1,
+        paddingTop: 30,
+        flex: 3,
         paddingBottom: 20,
         backgroundColor: '#c9b5aa',
     },
@@ -106,7 +129,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
     },
     main: {
-        marginTop: 15,
+        marginTop: 25,
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 20,
