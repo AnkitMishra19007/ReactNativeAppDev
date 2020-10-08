@@ -8,8 +8,11 @@ import ContactUs from '../screens/ContactUs';
 import SignUpShopOwner from '../screens/SignUpShopOwner';
 import SignUpCustomer from '../screens/SignUpCustomer';
 
+import Drawer from '../routes/drawer';
+
 
 const screens = {
+
     StartScreen: {
         screen: StartScreen,
         navigationOptions: {
@@ -53,7 +56,15 @@ const screens = {
         screen: SignUpCustomer,
         navigationOptions: {
             title: 'Sign Up Customer',
+
         },
+    },
+
+    Drawer: {
+        screen: Drawer,
+        navigationOptions: {
+            headerShown: false
+        }
     }
 
 }
