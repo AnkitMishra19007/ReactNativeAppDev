@@ -1,8 +1,9 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import AddProduct from '../screens/AddProduct';
-import Header from '../shared/header';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import AddProduct from '../screens/AddProduct';
+import Header from '../shared/header';
+import RegisterProduct from '../screens/RegisterProduct'
 
 const screens = {
     AddProduct: {
@@ -10,6 +11,17 @@ const screens = {
         navigationOptions: ({ navigation }) => {
             return {
                 headerTitle: () => <Header navigation={navigation} title='Add new product' />,
+                headerLeft: () => {
+                    return null;
+                },
+            }
+        }
+    },
+    RegisterProduct: {
+        screen: RegisterProduct,
+        navigationOptions: ({ navigation }) => {
+            return {
+                headerTitle: () => <Header navigation={navigation} title='Register a new product' />,
                 headerLeft: () => {
                     return null;
                 },

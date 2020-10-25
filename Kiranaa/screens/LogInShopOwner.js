@@ -44,8 +44,8 @@ export default class LogInShopOwner extends React.Component {
                             style={styles.textInput}
                         />
                     </KeyboardAvoidingView>
-
-                    <TouchableOpacity style={styles.feed2} onPress={() => this.userSignin(this.state.email, this.state.password)} >
+                    {/* onPress={() => this.userSignin(this.state.email, this.state.password)} */}
+                    <TouchableOpacity style={styles.feed2} onPress={() => this.props.navigation.replace('Drawer')} >
                         <Text style={styles.signUp}>Log In</Text>
                     </TouchableOpacity>
 

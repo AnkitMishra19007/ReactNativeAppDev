@@ -8,19 +8,68 @@ export default class SignUpShopOwner extends React.Component {
 
     state = {
         email: "",
-        password: ""
+        password: "",
+        Sname: "",
+        SOname: "",
+        Email: "",
+        Pno: "",
+        Address: "",
+        sID: ""
+
+    }
+    storeData() {
+        const db = firebase.firestore();
+        const users_SO = db.collection("users_SO").doc().set({
+            Sname: this.state.Sname,
+            SOname: this.state.SOname,
+            Email: this.state.email,
+            Pno: this.state.Pno,
+            Address: this.state.Address,
+            sID: this.state.sID,
+
+        })
+            .then(function () {
+                console.log("Document successfully written!");
+
+            })
+            .catch(function (error) {
+                console.error("Error writing document: ", error);
+            });
+    }
+
+
+    displayShopID() {
+        Alert.alert(
+            "Account successfully created",
+            "Shop Id is " + this.state.sID,
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                { text: "OK", onPress: () => console.log("OK Pressed") }
+            ],
+            { cancelable: false }
+        );
     }
 
     userSignup(email, pass) {
         firebase.auth().createUserWithEmailAndPassword(email, pass)
             .then(() => {
-                this.props.navigation.replace('Drawer')
+                this.setState({ sID: this.state.Sname[0].concat(this.state.SOname[0], this.state.Pno[0], this.state.Pno[1], Math.floor((Math.random() * 10))) }),
+                    this.storeData(),
+                    this.displayShopID(),
+                    this.props.navigation.replace('Drawer')
+
+
             })
             .catch(error => {
                 Alert.alert(error.message)
             })
 
     }
+
     render() {
         return (
             <View style={styles.container} >
@@ -33,12 +82,16 @@ export default class SignUpShopOwner extends React.Component {
                                 placeholder="Shop name"
                                 placeholderTextColor='#808080'
                                 style={styles.textInput}
+                                value={this.state.Sname}
+                                onChangeText={(Sname) => this.setState({ Sname })}
                             />
                             <Text style={styles.main}>Shop Owner name:</Text>
                             <TextInput
                                 placeholder="Shop's Owner"
                                 placeholderTextColor='#808080'
                                 style={styles.textInput}
+                                value={this.state.SOname}
+                                onChangeText={(SOname) => this.setState({ SOname })}
                             />
                             <Text style={styles.main}>E mail:</Text>
                             <TextInput
@@ -47,7 +100,7 @@ export default class SignUpShopOwner extends React.Component {
                                 keyboardType='email-address'
                                 style={styles.textInput}
                                 value={this.state.email}
-                                onChangeText={(text) => this.setState({ email: text })}
+                                onChangeText={(email) => this.setState({ email })}
                             />
                             <Text style={styles.main}>Phone Number:</Text>
                             <TextInput
@@ -55,6 +108,8 @@ export default class SignUpShopOwner extends React.Component {
                                 placeholderTextColor='#808080'
                                 keyboardType='number-pad'
                                 style={styles.textInput}
+                                value={this.state.Pno}
+                                onChangeText={(Pno) => this.setState({ Pno })}
 
                             />
                             <Text style={styles.main}>Password:</Text>
@@ -73,10 +128,12 @@ export default class SignUpShopOwner extends React.Component {
                                 placeholderTextColor='#808080'
                                 multiline
                                 style={styles.textInput2}
+                                value={this.state.Address}
+                                onChangeText={(Address) => this.setState({ Address })}
                             />
-                        </KeyboardAvoidingView>
 
-                        <TouchableOpacity style={styles.feed2} onPress={() => this.userSignup(this.state.email, this.state.password)}>
+                        </KeyboardAvoidingView>
+                        <TouchableOpacity style={styles.feed2} onPress={() => { this.userSignup(this.state.email, this.state.password); }}>
                             <Text style={styles.signUp}>Log In</Text>
                         </TouchableOpacity>
 

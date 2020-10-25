@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Button, Image, Text, View, Alert } from 'react-native';
+import { StyleSheet, Button, Image, Text, View, TouchableWithoutFeedback, } from 'react-native';
+import { } from 'react-native-gesture-handler';
 
 
 
-export default function SellerHome() {
+export default function SellerHome({ navigation }) {
 
 
     return (
@@ -26,36 +27,44 @@ export default function SellerHome() {
             </View>
 
             <View style={styles.row2}>
-                <View style={styles.info1}>
-                    <Text style={{ color: 'grey', fontSize: 15, }}>
-                        Stock alerts
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('AddProduct')}>
+                    <View style={styles.info1}>
+                        <Text style={{ color: 'grey', fontSize: 15, }}>
+                            Stock alerts
                     </Text>
-                    <Image
-                        style={{
+                        <Image
+                            style={{
 
-                            resizeMode: "contain",
-                            height: "70%",
-                            width: "40%"
-                        }}
+                                resizeMode: "contain",
+                                height: "70%",
+                                width: "40%"
+                            }}
 
-                        source={require('../assets/icons/alert.png')}
+                            source={require('../assets/icons/alert.png')}
 
-                    />
-                </View>
-                <View style={styles.info2}>
-                    <Text style={{ color: 'grey', fontSize: 15, }}>
-                        Add new product
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('AddProduct')}>
+                    <View style={styles.info2}>
+
+
+                        <Text style={{ color: 'grey', fontSize: 15, }}>
+                            Add new product
                     </Text>
-                    <Image
-                        style={{
 
-                            resizeMode: "contain",
-                            height: "70%",
-                            width: "40%"
-                        }}
-                        source={require('../assets/icons/add.png')}
-                    />
-                </View>
+                        <Image
+                            style={{
+
+                                resizeMode: "contain",
+                                height: "70%",
+                                width: "40%"
+                            }}
+                            source={require('../assets/icons/add.png')}
+                        />
+
+                    </View>
+                </TouchableWithoutFeedback>
             </View>
 
 
