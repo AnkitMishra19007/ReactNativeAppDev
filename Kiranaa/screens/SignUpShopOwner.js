@@ -134,7 +134,7 @@ export default class SignUpShopOwner extends React.Component {
 
                         </KeyboardAvoidingView>
                         <TouchableOpacity style={styles.feed2} onPress={() => { this.userSignup(this.state.email, this.state.password); }}>
-                            <Text style={styles.signUp}>Log In</Text>
+                            <Text style={styles.signUp}>Sign Up</Text>
                         </TouchableOpacity>
 
 
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     upper: {
-        paddingTop: 30,
+        paddingTop: 4,
         flex: 3,
         paddingBottom: 20,
         backgroundColor: '#c9b5aa',
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
     },
     main: {
-        marginTop: 25,
+        marginTop: 15,
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 20,
