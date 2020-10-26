@@ -9,32 +9,33 @@ export default function BuyerHome() {
     return (
 
         <View style={styles.container}>
-            <Text style={styles.txt2}>--Choose any shop from below--</Text>
+            <Text style={styles.txt2}>Choose any shop from below</Text>
             <View style={styles.upper}>
                 <View style={styles.left}>
                     <TouchableOpacity>
-                    <Image source={require('../assets/stationary.png')} /></TouchableOpacity>
+                    <Image source={require('../assets/stationary.png')} />
                     <Text style={styles.txt}>John's Stationary</Text>
-                    
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.right}>
                     <TouchableOpacity>
-                    <Image source={require('../assets/supermarket.png')} /></TouchableOpacity>
+                    <Image source={require('../assets/supermarket.png')} />
                     <Text style={styles.txt}>Robbin's General</Text>
-                    
+                    </TouchableOpacity>
                 </View>
             </View>
             <View style={styles.lower}>
                 <View style={styles.left}>
                     <TouchableOpacity>
-                    <Image source={require('../assets/sand.png')} /></TouchableOpacity>
+                    <Image source={require('../assets/sand.png')} />
                     <Text style={styles.txt}>Logan Plastics</Text>
-                    
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.right}>
                     <TouchableOpacity>
-                    <Image source={require('../assets/vegetable.png')} /></TouchableOpacity>
+                    <Image source={require('../assets/vegetable.png')} />
                     <Text style={styles.txt}>Jaggu Groceries</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -56,10 +57,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     txt2:{
-        color: '#123',
+        color: '#E53E31',
         fontSize: 20,
         fontWeight: 'bold',
-        padding: 4,
+        padding: 6,
         alignSelf: 'center',
         backgroundColor: '#ddd',
     },
@@ -78,20 +79,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#ddd',
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 2,
-        borderColor: 'indianred',
-        borderRadius: 30,
         margin: 14,
+        borderWidth: 2,
+        borderColor: '#EA6B33',
     },
     right:{
         flex:1,
         backgroundColor: '#ddd',
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 2,
-        borderColor: 'indianred',
-        borderRadius: 30,
         margin: 14,
+        borderWidth: 2,
+        borderColor: '#EA6B33',
     },
     img:{
         borderWidth: 2,
