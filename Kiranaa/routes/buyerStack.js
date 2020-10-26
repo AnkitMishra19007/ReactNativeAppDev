@@ -16,7 +16,7 @@ const screens = {
                     return null;
                 },
                 headerRight: () => (
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
                     <Image
                     style={{ width: 30, height: 30, marginRight: 25,}}
                     source={require("../assets/icons/shopping-cart.png")}
@@ -49,7 +49,6 @@ const buyerStack = createStackNavigator(screens, {
             fontWeight: 'normal',
 
         },
-        headerTintColor: 'teal'
 
 
     }
