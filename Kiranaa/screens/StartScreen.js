@@ -9,7 +9,7 @@ export default function StartScreen({ navigation }) {
 
             <View style={styles.imgcon}>
                 <View style={styles.img}>
-                    <Image source={require('../assets/Kiranaa.png')} />
+                    <Image source={require('../assets/newLogo.png')} />
 
                 </View>
             </View>
