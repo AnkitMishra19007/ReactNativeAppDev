@@ -178,12 +178,20 @@ export default class SellerHome extends React.Component {
                             </View>
                         </View>
                         <View style={{ flexDirection: "row", alignItems: "center" }}>
-                            <Text style={styles.texts}>Product Image</Text>
-                            <TouchableOpacity onPress={() => { this.chooseCamera() }} style={styles.button2}><Text style={styles.txt2}>Camera</Text></TouchableOpacity>
-                            <TouchableOpacity onPress={() => { this.chooseGallery() }} style={styles.button2}><Text style={styles.txt2}>Gallery</Text></TouchableOpacity>
+                            <Text style={styles.texts}>Add Image</Text>
+                            <TouchableOpacity onPress={() => { this.chooseCamera() }} style={styles.cam}>
+                            <Image
+                                style={{ width: 30, height: 30,}}
+                                source={require("../assets/icons/camera.png")}/>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => { this.chooseGallery() }} style={styles.cam}>
+                            <Image
+                                style={{ width: 30, height: 30,}}
+                                source={require("../assets/icons/upload.png")}/>
+                            </TouchableOpacity>
 
                         </View>
-                        <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Add Now</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Done</Text></TouchableOpacity>
                     </View>
                 </ScrollView>
             </View>
@@ -238,6 +246,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 12,
         color: '#383A3E'
+    },
+    cam:{
+        marginLeft: 35,
+        marginTop: 10,
+        borderWidth: 2,
+        padding: 2,
     }
 
 });
