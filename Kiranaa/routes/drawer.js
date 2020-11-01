@@ -3,7 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import React from 'react';
 import { Image } from 'react-native';
 import sellerStack from './sellerStack';
-import addProduct from './addProduct';
+import myStocks from './myStocks';
 import contactUsSeller from './contactUsSeller';
 
 
@@ -22,24 +22,39 @@ const RootDrawerNavigator = createDrawerNavigator({
         }
 
     },
-    addProduct: {
-        screen: addProduct,
+    myStocks: {
+        screen: myStocks,
         navigationOptions: {
 
-            title: 'Add new product',
+            title: 'Current Stocks',
             drawerIcon: (
                 <Image
                     style={{ width: 24, height: 24 }}
-                    source={require("../assets/icons/add.png")}
+                    source={require("../assets/icons/cube.png")}
                 />
             ),
         }
 
     },
+
+
+    profile: {
+        screen: contactUsSeller,
+        navigationOptions: {
+            title: 'Profile',
+            drawerIcon: (
+                <Image
+                    style={{ width: 24, height: 24 }}
+                    source={require("../assets/icons/user1.png")}
+                />
+            ),
+        }
+
+    },
+
     contactUsSeller: {
         screen: contactUsSeller,
         navigationOptions: {
-
             title: 'Contact Us',
             drawerIcon: (
                 <Image
