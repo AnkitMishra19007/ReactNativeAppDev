@@ -6,7 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 
 
-export default class SellerHome extends React.Component {
+export default class RegisterProduct extends React.Component {
     state = {
         name: "",
         brand: "",
@@ -219,7 +219,10 @@ const styles = StyleSheet.create({
     button: {
         borderWidth: 2,
         borderColor: '#318290',
-        padding: 16,
+        paddingTop: 13,
+        paddingBottom: 13,
+        paddingRight: 40,
+        paddingLeft: 40,
         marginTop: 25,
         marginBottom: 20,
         alignSelf: 'center',
