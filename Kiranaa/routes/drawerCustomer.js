@@ -5,9 +5,8 @@ import { Image } from 'react-native';
 import buyerStack from './buyerStack';
 import CustomerProfile from './CustomerProfile';
 import CustomerPast from './CustomerPast';
-import contactUsSeller from './contactUsSeller';
 import { color } from 'react-native-reanimated';
-import customerPast from '../screens/customerPast';
+
 
 const RootDrawerNavigator=createDrawerNavigator({
     Home:{
