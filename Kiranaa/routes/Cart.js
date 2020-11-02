@@ -3,13 +3,13 @@ import { StyleSheet, Text, View, } from 'react-native';
 
 
 
-export default function AddProduct() {
+export default function Cart() {
 
 
     return (
         <View style={styles.container}>
-            <Text>Add new product</Text>
-        </View >
+            <Text>CART IS EMPTY RIGHT NOW</Text>
+        </View>
     );
 }
 

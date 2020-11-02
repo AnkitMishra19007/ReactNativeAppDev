@@ -46,28 +46,32 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     imgcon: {
-        flex: 1.4,
+        flex: 1.1,
         backgroundColor: '#c9b5aa',
         justifyContent: 'center',
         alignItems: 'center',
 
     },
     con2: {
-        flex: 2,
+        flex: 1.7,
+        paddingTop: 10,
         alignItems: 'center',
         backgroundColor: '#c9b5aa',
         flexDirection: 'column',
     },
     con3: {
-        flex: 0.5,
+        flex: 0.4,
         backgroundColor: '#c9b5aa',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'baseline',
     },
     img: {
-        marginTop: 30,
+        marginTop: 5,
         resizeMode: 'contain',
+        borderTopWidth: 2,
+        borderBottomWidth: 2,
+        borderColor: 'teal',
     },
     title: {
         alignSelf: 'center',
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
         color: 'teal',
     },
     shop: {
-        margin: 27,
+        margin: 9,
         borderRadius: 30,
         borderColor: 'teal',
         borderWidth: 3,

@@ -9,7 +9,7 @@ import SignUpShopOwner from '../screens/SignUpShopOwner';
 import SignUpCustomer from '../screens/SignUpCustomer';
 
 import Drawer from '../routes/drawer';
-
+import Drawer1 from '../routes/drawerCustomer';
 
 const screens = {
 
@@ -62,6 +62,12 @@ const screens = {
 
     Drawer: {
         screen: Drawer,
+        navigationOptions: {
+            headerShown: false
+        }
+    },
+    Drawer1: {
+        screen: Drawer1,
         navigationOptions: {
             headerShown: false
         }

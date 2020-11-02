@@ -1,8 +1,24 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from "react-native";
+import * as firebase from 'firebase'
 
 
-export default function LogInCustomer({ navigation }) {
+export default class LogInCustomer extends React.Component {
+    state = {
+        email: "",
+        password: ""
+    }
+    userSignin(email, pass) {
+        firebase.auth().signInWithEmailAndPassword(email, pass)
+            .then(() => {
+                this.props.navigation.replace('Drawer1')
+            })
+            .catch(error => {
+                Alert.alert(error.message)
+            })
+    }
+
+    render() {
 
     return (
         <View style={styles.container}>
@@ -27,7 +43,7 @@ export default function LogInCustomer({ navigation }) {
                     />
                 </KeyboardAvoidingView>
 
-                <TouchableOpacity style={styles.feed2} >
+                <TouchableOpacity style={styles.feed2} onPress={() => this.props.navigation.replace('Drawer1')} >
                     <Text style={styles.signUp}>Log In</Text>
                 </TouchableOpacity>
 
@@ -37,7 +53,7 @@ export default function LogInCustomer({ navigation }) {
             <View style={styles.lower}>
                 <Text style={styles.promt}>Dont have an account?</Text>
                 <View>
-                    <TouchableOpacity style={styles.feed} onPress={() => navigation.navigate('SignUpCustomer')} >
+                <TouchableOpacity style={styles.feed} onPress={() => this.props.navigation.replace('SignUpCustomer')} >
                         <Text style={styles.signUp}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
@@ -46,6 +62,7 @@ export default function LogInCustomer({ navigation }) {
         </View>
     );
 }
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -53,7 +70,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     upper: {
-        paddingTop: 30,
+        paddingTop: 5,
         flex: 3,
         backgroundColor: '#c9b5aa',
     },
@@ -80,7 +97,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
     },
     main: {
-        marginTop: 30,
+        marginTop: 10,
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 25,
