@@ -35,7 +35,7 @@ export default function ContactUs() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#c9b5aa',
+        backgroundColor: '#ddd',
         padding: 5,
         justifyContent: 'space-evenly',
     },
