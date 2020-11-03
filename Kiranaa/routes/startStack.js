@@ -45,6 +45,9 @@ const screens = {
     },
     ContactUs: {
         screen: ContactUs,
+        navigationOptions: {
+            title: 'Contact Us',
+        },
     },
     SignUpShopOwner: {
         screen: SignUpShopOwner,
@@ -77,7 +80,7 @@ const screens = {
 const StartStack = createStackNavigator(screens, {
     defaultNavigationOptions: {
         headerStyle: {
-            backgroundColor: '#c9b5aa',
+            backgroundColor: '#9ED2A8',
         },
         headerTitleStyle: {
             flex: 1,
@@ -85,7 +88,6 @@ const StartStack = createStackNavigator(screens, {
             fontWeight: 'normal',
 
         },
-        headerTintColor: 'teal'
 
 
     }
