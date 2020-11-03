@@ -43,7 +43,7 @@ export default class LogInCustomer extends React.Component {
                     />
                 </KeyboardAvoidingView>
 
-                <TouchableOpacity style={styles.feed2} onPress={() => this.props.navigation.replace('Drawer1')} >
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.replace('Drawer1')} >
                     <Text style={styles.signUp}>Log In</Text>
                 </TouchableOpacity>
 
@@ -53,7 +53,7 @@ export default class LogInCustomer extends React.Component {
             <View style={styles.lower}>
                 <Text style={styles.promt}>Dont have an account?</Text>
                 <View>
-                <TouchableOpacity style={styles.feed} onPress={() => this.props.navigation.replace('SignUpCustomer')} >
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.replace('SignUpCustomer')} >
                         <Text style={styles.signUp}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
@@ -72,12 +72,12 @@ const styles = StyleSheet.create({
     upper: {
         paddingTop: 5,
         flex: 3,
-        backgroundColor: '#c9b5aa',
+        backgroundColor: '#ddd',
     },
     lower: {
         flex: 1,
         alignContent: 'center',
-        backgroundColor: '#c9b5aa'
+        backgroundColor: '#ddd'
     },
     head: {
         alignSelf: 'center',
@@ -102,35 +102,28 @@ const styles = StyleSheet.create({
         marginLeft: 30,
         fontSize: 25,
         fontWeight: 'bold',
-        color: 'teal',
-
-
     },
     promt: {
         alignSelf: 'center',
         fontSize: 20,
-        color: 'teal',
         fontStyle: 'italic',
     },
-    feed: {
-        marginTop: 12,
-        alignSelf: 'center',
-        borderRadius: 10,
-        borderColor: '#965733',
+    button: {
         borderWidth: 2,
-        padding: 16,
-    },
-    feed2: {
+        borderColor: '#4A923B',
+        paddingTop: 13,
+        paddingBottom: 13,
+        paddingRight: 40,
+        paddingLeft: 40,
         marginTop: 25,
+        marginBottom: 20,
         alignSelf: 'center',
-        borderRadius: 10,
-        borderColor: '#965733',
-        borderWidth: 2,
-        padding: 16,
+        borderRadius: 20,
+        backgroundColor: '#4A923B'
     },
     signUp: {
         fontSize: 20,
-        color: 'teal',
+        color: 'white',
         fontWeight: 'bold',
     },
 })
