@@ -19,56 +19,32 @@ export default function SellerHome({ navigation }) {
                     <View style={{ width: "30%" }}>
                         <Button
                             title="View"
-                            color='orange'
+                            color='blue'
 
                         />
                     </View>
                 </View>
             </View>
 
-            <View style={styles.row2}>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('AddProduct')}>
-                    <View style={styles.info1}>
-                        <Text style={{ color: 'grey', fontSize: 15, }}>
-                            Stock alerts
-                    </Text>
-                        <Image
-                            style={{
+            <View style={styles.newOrders}>
+                <Text style={styles.alertText}>DELIVERED ORDERS</Text>
 
-                                resizeMode: "contain",
-                                height: "70%",
-                                width: "40%"
-                            }}
-
-                            source={require('../assets/icons/alert.png')}
+                <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                    <Text style={styles.numOrders}>M</Text>
+                    <View style={{ width: "30%" }}>
+                        <Button
+                            title="View"
+                            color='blue'
 
                         />
                     </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('AddProduct')}>
-                    <View style={styles.info2}>
-
-
-                        <Text style={{ color: 'grey', fontSize: 15, }}>
-                            Add new product
-                    </Text>
-
-                        <Image
-                            style={{
-
-                                resizeMode: "contain",
-                                height: "70%",
-                                width: "40%"
-                            }}
-                            source={require('../assets/icons/add.png')}
-                        />
-
-                    </View>
-                </TouchableWithoutFeedback>
+                </View>
             </View>
 
+            
 
-        </View >
+
+        </View>
 
     );
 }
