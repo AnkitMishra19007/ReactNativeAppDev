@@ -27,7 +27,7 @@ const screens = {
     LogInShopOwner: {
         screen: LogInShopOwner,
         navigationOptions: {
-            title: 'LOG IN',
+            title: 'LOG IN Shop Owner',
         },
     },
     LogInCustomer: {
