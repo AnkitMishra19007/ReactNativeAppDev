@@ -4,7 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import * as firebase from 'firebase';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
-
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default class RegisterProduct extends React.Component {
     state = {
@@ -156,7 +156,7 @@ export default class RegisterProduct extends React.Component {
                             onChangeText={(expDate) => this.setState({ expDate })}
                         />
                         <View style={{ flexDirection: "row" }}>
-                            <View style={{ flexDirection: "column", marginRight: "5%" }}>
+                            <View style={{ flexDirection: "column", marginRight: "5%", flex: 0.3 }}>
                                 <Text style={styles.texts}>Quantity</Text>
                                 <TextInput
                                     placeholder="Quantity"
@@ -166,15 +166,18 @@ export default class RegisterProduct extends React.Component {
                                     onChangeText={(quantity) => this.setState({ quantity })}
                                 />
                             </View>
-                            <View style={{ flexDirection: "column" }}>
+                            <View style={{ flexDirection: "column",flex: 0.3 }}>
                                 <Text style={styles.texts}>Unit</Text>
-                                <TextInput
-                                    placeholder="g/Kg/Pcs"
-                                    style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
-                                    value={this.state.unit}
-                                    onChangeText={(unit) => this.setState({ unit })}
+                                <DropDownPicker
+                                    style={styles.drop}
+                                    items={[
+                                    {label: 'Pcs', value: 'Pcs'},
+                                    {label: 'Kg', value: 'Kg'},
+                                    {label: 'g', value: 'g'},
+                                    {label: 'Ltr', value: 'Ltr'},
+                                    ]}
+                                    placeholder="Unit"
                                 />
-
                             </View>
                         </View>
                         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -192,7 +195,9 @@ export default class RegisterProduct extends React.Component {
 
                         </View>
                         <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Done</Text></TouchableOpacity>
+                    
                     </View>
+
                 </ScrollView>
             </View>
         );
@@ -255,6 +260,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
         borderWidth: 2,
         padding: 2,
+    },
+    drop:{
+        borderColor: '#008399',
+        marginTop: 6,
+        height: 38,
     }
 
 });
