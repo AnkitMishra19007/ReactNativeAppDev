@@ -9,7 +9,7 @@ export default function StartScreen({ navigation }) {
 
             <View style={styles.imgcon}>
                 <View style={styles.img}>
-                    <Image source={require('../assets/newLogo.png')} />
+                    <Image source={require('../assets/Kiranaa.png')} />
 
                 </View>
             </View>
@@ -19,7 +19,7 @@ export default function StartScreen({ navigation }) {
                     <Text style={styles.txt1} >Shop Owner</Text>
                 </TouchableOpacity>
                 <Text style={styles.line}>-------------------------------------------------------------------</Text>
-                <TouchableOpacity style={styles.shop} onPress={() => navigation.navigate('LogInCustomer')}>
+                <TouchableOpacity style={styles.cust} onPress={() => navigation.navigate('LogInCustomer')}>
                     <Text style={styles.txt1}>Customer</Text>
                 </TouchableOpacity>
 
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     imgcon: {
         flex: 1.1,
-        backgroundColor: '#c9b5aa',
+        backgroundColor: '#ddd',
         justifyContent: 'center',
         alignItems: 'center',
 
@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
         flex: 1.7,
         paddingTop: 10,
         alignItems: 'center',
-        backgroundColor: '#c9b5aa',
+        backgroundColor: '#ddd',
         flexDirection: 'column',
     },
     con3: {
         flex: 0.4,
-        backgroundColor: '#c9b5aa',
+        backgroundColor: '#ddd',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'baseline',
@@ -82,24 +82,34 @@ const styles = StyleSheet.create({
     shop: {
         margin: 9,
         borderRadius: 30,
-        borderColor: 'teal',
+        borderColor: '#092A81',
         borderWidth: 3,
         padding: 20,
+        backgroundColor: '#092A81',
+    },
+    cust: {
+        margin: 9,
+        borderRadius: 30,
+        borderColor: '#C63D11',
+        borderWidth: 3,
+        padding: 20,
+        backgroundColor: '#C63D11',
     },
     txt1: {
         fontSize: 20,
-        color: 'teal',
+        color: 'white',
         fontWeight: 'bold',
     },
     feed: {
         borderRadius: 10,
-        borderColor: 'teal',
+        borderColor: '#4A923B',
         borderWidth: 2,
         padding: 14,
+        backgroundColor: '#4A923B',
     },
     txt2: {
         fontSize: 11,
-        color: 'teal',
+        color: 'white',
         fontWeight: 'bold',
     },
     line: {
