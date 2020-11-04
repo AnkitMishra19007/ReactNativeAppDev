@@ -14,7 +14,8 @@ export default class SignUpShopOwner extends React.Component {
         Email: "",
         Pno: "",
         Address: "",
-        sID: ""
+        sID: "",
+        SCategory: "",
 
     }
     storeData() {
@@ -26,6 +27,7 @@ export default class SignUpShopOwner extends React.Component {
             Pno: this.state.Pno,
             Address: this.state.Address,
             sID: this.state.sID,
+            SCategory: this.state.SCategory,
 
         })
             .then(function () {
@@ -92,6 +94,14 @@ export default class SignUpShopOwner extends React.Component {
                                 style={styles.textInput}
                                 value={this.state.SOname}
                                 onChangeText={(SOname) => this.setState({ SOname })}
+                            />
+                            <Text style={styles.main}>Shop Category:</Text>
+                            <TextInput
+                                placeholder="Category"
+                                placeholderTextColor='#808080'
+                                style={styles.textInput}
+                                value={this.state.SCategory}
+                                onChangeText={(SCategory) => this.setState({ SCategory })}
                             />
                             <Text style={styles.main}>E mail:</Text>
                             <TextInput

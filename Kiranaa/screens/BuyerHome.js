@@ -1,41 +1,40 @@
 import React from 'react';
-import { StyleSheet, Button, Image, Text, View, Alert, TouchableOpacity} from 'react-native';
+import { StyleSheet, Button, Image, Text, View, Alert, TouchableOpacity } from 'react-native';
 
 
 
-export default function BuyerHome() {
+export default function BuyerHome({ navigation }) {
 
 
     return (
 
         <View style={styles.container}>
-            <Text style={styles.txt2}>Choose any shop from below</Text>
+            <Text style={styles.txt2}>--Choose any shop from below--</Text>
             <View style={styles.upper}>
                 <View style={styles.left}>
-                    <TouchableOpacity>
-                    <Image source={require('../assets/stationary.png')} />
-                    <Text style={styles.txt}>John's Stationary</Text>
-                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('StationaryShopsCategory')}>
+                        <Image source={require('../assets/stationary.png')} /></TouchableOpacity>
+                    <Text style={styles.txt}>Stationary</Text>
+
                 </View>
                 <View style={styles.right}>
-                    <TouchableOpacity>
-                    <Image source={require('../assets/supermarket.png')} />
-                    <Text style={styles.txt}>Robbin's General</Text>
-                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('GeneralShopsCategory')}>
+                        <Image source={require('../assets/supermarket.png')} /></TouchableOpacity>
+                    <Text style={styles.txt}>General</Text>
+
                 </View>
             </View>
             <View style={styles.lower}>
                 <View style={styles.left}>
-                    <TouchableOpacity>
-                    <Image source={require('../assets/sand.png')} />
-                    <Text style={styles.txt}>Logan Plastics</Text>
-                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('PlasticsShopsCategory')}>
+                        <Image source={require('../assets/sand.png')} /></TouchableOpacity>
+                    <Text style={styles.txt}>Plastics</Text>
+
                 </View>
                 <View style={styles.right}>
-                    <TouchableOpacity>
-                    <Image source={require('../assets/vegetable.png')} />
-                    <Text style={styles.txt}>Jaggu Groceries</Text>
-                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('GroceriesShopsCategory')}>
+                        <Image source={require('../assets/vegetable.png')} /></TouchableOpacity>
+                    <Text style={styles.txt}>Groceries</Text>
                 </View>
             </View>
 
@@ -50,49 +49,51 @@ const styles = StyleSheet.create({
         backgroundColor: "#ddd",
         flexDirection: 'column',
     },
-    txt:{
+    txt: {
         color: '#123',
         fontSize: 17,
         padding: 4,
         alignSelf: 'center',
     },
-    txt2:{
-        color: '#E53E31',
+    txt2: {
+        color: '#123',
         fontSize: 20,
         fontWeight: 'bold',
-        padding: 6,
+        padding: 4,
         alignSelf: 'center',
         backgroundColor: '#ddd',
     },
-    upper:{
-        flex:1,
+    upper: {
+        flex: 1,
         backgroundColor: '#ddd',
         flexDirection: 'row',
     },
-    lower:{
-        flex:1,
+    lower: {
+        flex: 1,
         backgroundColor: '#ddd',
         flexDirection: 'row',
     },
-    left:{
+    left: {
         flex: 1,
         backgroundColor: '#ddd',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 14,
         borderWidth: 2,
-        borderColor: '#EA6B33',
+        borderColor: 'indianred',
+        borderRadius: 30,
+        margin: 14,
     },
-    right:{
-        flex:1,
+    right: {
+        flex: 1,
         backgroundColor: '#ddd',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 14,
         borderWidth: 2,
-        borderColor: '#EA6B33',
+        borderColor: 'indianred',
+        borderRadius: 30,
+        margin: 14,
     },
-    img:{
+    img: {
         borderWidth: 2,
     }
 
