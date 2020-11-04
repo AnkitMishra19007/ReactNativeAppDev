@@ -19,6 +19,7 @@ const screens = {
             title: 'KI₹ANAA',
             headerTitleStyle: {
                 textAlign: "center",
+                fontFamily: 'Marker',
                 fontSize: 32,
             },
 
@@ -85,7 +86,7 @@ const StartStack = createStackNavigator(screens, {
         headerTitleStyle: {
             flex: 1,
             fontSize: 22,
-            fontWeight: 'normal',
+            fontFamily: 'Patua',
 
         },
 
