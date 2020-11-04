@@ -4,7 +4,7 @@ import { StyleSheet, Button, Image, Text, View, Alert, FlatList, TouchableOpacit
 import * as firebase from 'firebase';
 
 
-export default class GeneralShopsCategory extends React.Component {
+export default class PlasticsShopsCategory extends React.Component {
 
     constructor(props) {
         super(props);
