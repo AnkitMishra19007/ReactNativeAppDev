@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     head: {
         color: 'teal',
         fontSize: 23,
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
     line2: {
         marginTop: 20,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     feedl: {
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
         fontSize: 22,
         marginTop: 3,
         color: 'teal',
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     feedr: {
         padding: 5,
         fontSize: 19,
+        fontFamily: 'Patua',
         color: '#965733',
         borderColor: 'teal',
         borderBottomWidth: 2,
