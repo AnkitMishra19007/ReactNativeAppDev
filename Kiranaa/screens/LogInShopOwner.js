@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from "react-native";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from "react-native";
 import * as firebase from 'firebase'
 
 
@@ -22,15 +22,11 @@ export default class LogInShopOwner extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-
                 <View style={styles.upper}>
-                    {/* <Text style={styles.head}>LOG IN</Text> */}
                     <Text style={styles.main}>Shop ID:</Text>
-                    <KeyboardAvoidingView>
                         <TextInput
                             placeholder="ShopID"
                             placeholderTextColor='#808080'
-                            underlineColorAndroid={'transparent'}
                             style={styles.textInput}
                             onChangeText={(text) => this.setState({ email: text })}
                         />
@@ -38,12 +34,10 @@ export default class LogInShopOwner extends React.Component {
                         <TextInput
                             placeholder="Password"
                             placeholderTextColor='#808080'
-
                             secureTextEntry={true}
                             onChangeText={(text) => this.setState({ password: text })}
                             style={styles.textInput}
                         />
-                    </KeyboardAvoidingView>
                     {/* onPress={() => this.userSignin(this.state.email, this.state.password)} */}
                     <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.replace('Drawer')} >
                         <Text style={styles.signUp}>Log In</Text>
@@ -51,7 +45,6 @@ export default class LogInShopOwner extends React.Component {
 
 
                 </View>
-
                 <View style={styles.lower}>
                     <Text style={styles.promt}>Dont have an account?</Text>
                     <View style={styles.con3}>
@@ -70,16 +63,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+        backgroundColor: '#ddd',
     },
     upper: {
         paddingTop: 10,
         flex: 3,
-        backgroundColor: '#ddd',
     },
     lower: {
-        flex: 1,
+        flex:1,
         alignContent: 'center',
-        backgroundColor: '#ddd'
     },
     head: {
         alignSelf: 'center',

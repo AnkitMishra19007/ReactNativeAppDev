@@ -22,11 +22,8 @@ export default class LogInCustomer extends React.Component {
 
     return (
         <View style={styles.container}>
-
             <View style={styles.upper}>
-                {/* <Text style={styles.head}>LOG IN Customer</Text> */}
                 <Text style={styles.main}>Username:</Text>
-                <KeyboardAvoidingView>
                     <TextInput
                         placeholder="Username"
                         placeholderTextColor='#808080'
@@ -41,7 +38,6 @@ export default class LogInCustomer extends React.Component {
                         secureTextEntry={true}
                         style={styles.textInput}
                     />
-                </KeyboardAvoidingView>
 
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.replace('Drawer1')} >
                     <Text style={styles.signUp}>Log In</Text>
