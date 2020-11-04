@@ -133,7 +133,7 @@ export default class SignUpShopOwner extends React.Component {
                             />
 
                         </KeyboardAvoidingView>
-                        <TouchableOpacity style={styles.feed2} onPress={() => { this.userSignup(this.state.email, this.state.password); }}>
+                        <TouchableOpacity style={styles.button} onPress={() => { this.userSignup(this.state.email, this.state.password); }}>
                             <Text style={styles.signUp}>Sign Up</Text>
                         </TouchableOpacity>
 
@@ -141,6 +141,7 @@ export default class SignUpShopOwner extends React.Component {
                     </View>
                 </ScrollView>
             </View>
+            
         );
     }
 }
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
         paddingTop: 4,
         flex: 3,
         paddingBottom: 20,
-        backgroundColor: '#c9b5aa',
+        backgroundColor: '#ddd',
     },
     head: {
         alignSelf: 'center',
@@ -191,29 +192,23 @@ const styles = StyleSheet.create({
         marginLeft: 30,
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'teal',
-
-
     },
-    feed: {
-        marginTop: 12,
-        alignSelf: 'center',
-        borderRadius: 10,
-        borderColor: '#965733',
+    button: {
         borderWidth: 2,
-        padding: 16,
-    },
-    feed2: {
+        borderColor: '#4A923B',
+        paddingTop: 13,
+        paddingBottom: 13,
+        paddingRight: 40,
+        paddingLeft: 40,
         marginTop: 25,
+        marginBottom: 20,
         alignSelf: 'center',
-        borderRadius: 10,
-        borderColor: '#965733',
-        borderWidth: 2,
-        padding: 16,
+        borderRadius: 20,
+        backgroundColor: '#4A923B'
     },
     signUp: {
         fontSize: 20,
-        color: 'teal',
+        color: 'white',
         fontWeight: 'bold',
     },
 })
