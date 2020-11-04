@@ -46,13 +46,12 @@ const styles = StyleSheet.create({
     special: {
         fontSize: 25,
         color: '#965733',
-        fontWeight: 'bold',
-        fontStyle: 'italic',
+        fontFamily: 'Marker',
     },
     normal: {
         fontSize: 20,
         color: 'teal',
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
     color: {
         color: '#965733',
