@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     },
     title: {
         alignSelf: 'center',
-        fontWeight: 'bold',
         fontSize: 34,
         color: 'teal',
+        fontFamily: 'Patua',
     },
     shop: {
         margin: 9,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     txt1: {
         fontSize: 20,
         color: 'white',
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
     feed: {
         borderRadius: 10,
@@ -108,9 +108,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#4A923B',
     },
     txt2: {
-        fontSize: 11,
+        fontSize: 17,
         color: 'white',
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
     line: {
         color: 'teal',
