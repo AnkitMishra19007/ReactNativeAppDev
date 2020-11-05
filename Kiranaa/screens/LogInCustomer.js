@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from "react-native";
 import * as firebase from 'firebase'
+import { ScrollView } from "react-native-gesture-handler";
 
 
 export default class LogInCustomer extends React.Component {
@@ -21,6 +22,9 @@ export default class LogInCustomer extends React.Component {
     render() {
 
     return (
+        <KeyboardAvoidingView
+        style={{flex:1}} behavior='height'
+        >
         <View style={styles.container}>
             <View style={styles.upper}>
                 <Text style={styles.main}>Username:</Text>
@@ -56,6 +60,7 @@ export default class LogInCustomer extends React.Component {
 
             </View>
         </View>
+        </KeyboardAvoidingView>
     );
 }
 }
@@ -64,6 +69,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignContent: 'space-around'
     },
     upper: {
         paddingTop: 5,
