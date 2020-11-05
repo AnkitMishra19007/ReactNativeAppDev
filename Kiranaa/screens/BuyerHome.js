@@ -52,13 +52,14 @@ const styles = StyleSheet.create({
     txt: {
         color: '#123',
         fontSize: 17,
+        fontFamily: 'Patua',
         padding: 4,
         alignSelf: 'center',
     },
     txt2: {
         color: '#123',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
         padding: 4,
         alignSelf: 'center',
         backgroundColor: '#ddd',
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     },
     left: {
         flex: 1,
-        backgroundColor: '#ddd',
+        backgroundColor: '#dcb',
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 2,
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     },
     right: {
         flex: 1,
-        backgroundColor: '#ddd',
+        backgroundColor: '#dcb',
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 2,
