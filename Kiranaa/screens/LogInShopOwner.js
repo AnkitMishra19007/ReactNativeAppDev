@@ -25,7 +25,6 @@ export default class LogInShopOwner extends React.Component {
             style={{flex:1}} behavior='height'
             >
             <View style={styles.container}>
-            <ScrollView>
                 <View style={styles.upper}>
                     <Text style={styles.main}>Shop ID:</Text>
                         <TextInput
@@ -58,7 +57,6 @@ export default class LogInShopOwner extends React.Component {
                     </View>
 
                 </View>
-                </ScrollView>
            </View>
            </KeyboardAvoidingView>
         );
@@ -70,6 +68,8 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         backgroundColor: '#ddd',
+        justifyContent: 'space-around',
+        alignContent: 'space-around'
     },
     upper: {
         paddingTop: 10,
@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
     lower: {
         flex:1,
         alignContent: 'center',
-        marginTop: 30,
     },
     textInput: {
         marginTop: 20,
