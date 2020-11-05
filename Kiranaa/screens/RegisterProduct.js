@@ -120,14 +120,14 @@ export default class RegisterProduct extends React.Component {
                         <Text style={styles.texts}>Name of the product </Text>
                         <TextInput
                             placeholder="Name"
-                            style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
+                            style={styles.inp}
                             value={this.state.name}
                             onChangeText={(name) => this.setState({ name })}
                         />
                         <Text style={styles.texts}>Brand</Text>
                         <TextInput
                             placeholder="Brand name"
-                            style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
+                            style={styles.inp}
                             value={this.state.brand}
                             onChangeText={(brand) => this.setState({ brand })}
                         />
@@ -135,7 +135,7 @@ export default class RegisterProduct extends React.Component {
                         <TextInput
                             placeholder="MRP"
                             keyboardType={"number-pad"}
-                            style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
+                            style={styles.inp}
                             value={this.state.MRP}
                             onChangeText={(MRP) => this.setState({ MRP })}
                         />
@@ -143,7 +143,7 @@ export default class RegisterProduct extends React.Component {
                         <TextInput
                             placeholder="Selling Price"
                             keyboardType={"number-pad"}
-                            style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
+                            style={styles.inp}
                             value={this.state.SP}
                             onChangeText={(SP) => this.setState({ SP })}
                         />
@@ -151,7 +151,7 @@ export default class RegisterProduct extends React.Component {
                         <TextInput
                             placeholder="Date of Expiry"
                             keyboardType={"number-pad"}
-                            style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
+                            style={styles.inp}
                             value={this.state.expDate}
                             onChangeText={(expDate) => this.setState({ expDate })}
                         />
@@ -161,7 +161,7 @@ export default class RegisterProduct extends React.Component {
                                 <TextInput
                                     placeholder="Quantity"
                                     keyboardType={"number-pad"}
-                                    style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
+                                    style={styles.inp}
                                     value={this.state.quantity}
                                     onChangeText={(quantity) => this.setState({ quantity })}
                                 />
@@ -210,16 +210,25 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
 
     },
+    inp:{
+        height: 40,
+        borderRadius: 10,
+        borderColor: '#008399',
+        borderWidth: 1,
+        marginTop: 5,
+        fontSize: 17,
+        fontFamily: 'Patua',
+        padding: 5,
+        color: '#008399'
+    },
     inputs: {
         marginHorizontal: "5%",
         marginTop: 1,
-
-
     },
     texts: {
         fontSize: 20,
         marginTop: 8,
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
     button: {
         borderWidth: 2,
@@ -246,12 +255,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#9BE3FF'
     },
     txt: {
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
         fontSize: 20,
         color: '#383A3E'
     },
     txt2: {
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
         fontSize: 12,
         color: '#383A3E'
     },
