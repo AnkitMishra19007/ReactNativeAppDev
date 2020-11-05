@@ -9,7 +9,7 @@ export default function search () {
                 <Text style={styles.texts}>Search product from our database</Text>
                 <TextInput
                     placeholder="product name"
-                    style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, padding: 5, color: '#008399' }}
+                    style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, fontFamily: 'Patua', padding: 5, color: '#008399' }}
                 />
                 <View style={{ marginTop: "5%", alignItems: 'center', justifyContent: 'center', }}>
                 <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Search</Text></TouchableOpacity>
@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#9BE3FF'
     },
     txt: {
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
         fontSize: 20,
         color: '#383A3E'
     },
     texts: {
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
 });
