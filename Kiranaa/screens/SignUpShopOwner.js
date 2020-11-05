@@ -3,25 +3,31 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingVi
 import { ScrollView } from "react-native-gesture-handler";
 import * as firebase from 'firebase'
 
-export default class SignUpCustomer extends React.Component {
+
+export default class SignUpShopOwner extends React.Component {
 
     state = {
         email: "",
         password: "",
-        username:"",
-        phone: "",
+        Sname: "",
+        SOname: "",
+        Email: "",
+        Pno: "",
         Address: "",
-        ciD: "",
-    }
+        sID: "",
+        SCategory: "",
 
+    }
     storeData() {
         const db = firebase.firestore();
-        const customer = db.collection("customer").doc().set({
-            email: this.state.email,
-            username: this.state.username,
-            phone: this.state.phone,
+        const users_SO = db.collection("users_SO").doc().set({
+            Sname: this.state.Sname,
+            SOname: this.state.SOname,
+            Email: this.state.email,
+            Pno: this.state.Pno,
             Address: this.state.Address,
-            cID: this.state.cID,
+            sID: this.state.sID,
+            SCategory: this.state.SCategory,
 
         })
             .then(function () {
@@ -33,10 +39,11 @@ export default class SignUpCustomer extends React.Component {
             });
     }
 
-    display() {
+
+    displayShopID() {
         Alert.alert(
             "Account successfully created",
-            "Your Customer Id is " + this.state.cID,
+            "Shop Id is " + this.state.sID,
             [
                 {
                     text: "Cancel",
@@ -52,10 +59,10 @@ export default class SignUpCustomer extends React.Component {
     userSignup(email, pass) {
         firebase.auth().createUserWithEmailAndPassword(email, pass)
             .then(() => {
-                this.setState({ cID: this.state.username[0].concat(this.state.username[1], this.state.phone[0], Math.floor((Math.random() * 10)), Math.floor((Math.random() * 10))) }),
+                this.setState({ sID: this.state.Sname[0].concat(this.state.SOname[0], this.state.Pno[0], this.state.Pno[1], Math.floor((Math.random() * 10))) }),
                     this.storeData(),
-                    this.display(),
-                    this.props.navigation.replace('Drawer1')
+                    this.displayShopID(),
+                    this.props.navigation.replace('Drawer')
 
 
             })
@@ -66,68 +73,85 @@ export default class SignUpCustomer extends React.Component {
     }
 
     render() {
-    return (
-        <View style={styles.container}>
-            <ScrollView>
-                <View style={styles.upper}>
+        return (
+            <View style={styles.container} >
+                <ScrollView>
+                    <View style={styles.upper}>
+                        <KeyboardAvoidingView>
+                            <Text style={styles.main}>Shop name:</Text>
+                            <TextInput
+                                placeholder="Shop name"
+                                placeholderTextColor='#808080'
+                                style={styles.textInput}
+                                value={this.state.Sname}
+                                onChangeText={(Sname) => this.setState({ Sname })}
+                            />
+                            <Text style={styles.main}>Shop Owner name:</Text>
+                            <TextInput
+                                placeholder="Shop's Owner"
+                                placeholderTextColor='#808080'
+                                style={styles.textInput}
+                                value={this.state.SOname}
+                                onChangeText={(SOname) => this.setState({ SOname })}
+                            />
+                            <Text style={styles.main}>Shop Category:</Text>
+                            <TextInput
+                                placeholder="Category"
+                                placeholderTextColor='#808080'
+                                style={styles.textInput}
+                                value={this.state.SCategory}
+                                onChangeText={(SCategory) => this.setState({ SCategory })}
+                            />
+                            <Text style={styles.main}>E mail:</Text>
+                            <TextInput
+                                placeholder="E mail"
+                                placeholderTextColor='#808080'
+                                keyboardType='email-address'
+                                style={styles.textInput}
+                                value={this.state.email}
+                                onChangeText={(email) => this.setState({ email })}
+                            />
+                            <Text style={styles.main}>Phone Number:</Text>
+                            <TextInput
+                                placeholder="phone number"
+                                placeholderTextColor='#808080'
+                                keyboardType='number-pad'
+                                style={styles.textInput}
+                                value={this.state.Pno}
+                                onChangeText={(Pno) => this.setState({ Pno })}
 
-                    <KeyboardAvoidingView>
-                        <Text style={styles.main}>Username:</Text>
-                        <TextInput
-                            placeholder="Username"
-                            placeholderTextColor='#808080'
-                            style={styles.textInput}
-                            value={this.state.username}
-                            onChangeText={(username) => this.setState({ username })}
-                        />
-                        <Text style={styles.main}>E mail:</Text>
-                        <TextInput
-                            placeholder="E mail"
-                            placeholderTextColor='#808080'
-                            keyboardType='email-address'
-                            style={styles.textInput}
-                            style={styles.textInput}
-                            value={this.state.email}
-                            onChangeText={(email) => this.setState({ email})}
-                        />
-                        <Text style={styles.main}>Phone Number:</Text>
-                        <TextInput
-                            placeholder="Phone number"
-                            placeholderTextColor='#808080'
-                            keyboardType='number-pad'
-                            style={styles.textInput}
-                            value={this.state.phone}
-                            onChangeText={(phone) => this.setState({ phone })}
-                        />
-                        <Text style={styles.main}>Password:</Text>
-                        <TextInput
-                            placeholder="Password"
-                            placeholderTextColor='#808080'
-                            secureTextEntry={true}
-                            style={styles.textInput}
-                            value={this.state.password}
-                            onChangeText={(text) => this.setState({ password: text })}
-                        />
-                        <Text style={styles.main}>Address:</Text>
-                        <TextInput
-                            placeholder="House Address"
-                            placeholderTextColor='#808080'
-                            multiline
-                            style={styles.textInput2}
-                            value={this.state.Address}
-                            onChangeText={(Address) => this.setState({ Address })}
-                        />
-                    </KeyboardAvoidingView>
+                            />
+                            <Text style={styles.main}>Password:</Text>
+                            <TextInput
+                                placeholder="Password"
+                                placeholderTextColor='#808080'
+                                secureTextEntry={true}
+                                style={styles.textInput}
+                                value={this.state.password}
+                                onChangeText={(text) => this.setState({ password: text })}
+                            />
 
-                    <TouchableOpacity style={styles.button} onPress={() => { this.userSignup(this.state.email, this.state.password); }}>
+                            <Text style={styles.main}>Shop Address:</Text>
+                            <TextInput
+                                placeholder="Shop Address"
+                                placeholderTextColor='#808080'
+                                multiline
+                                style={styles.textInput2}
+                                value={this.state.Address}
+                                onChangeText={(Address) => this.setState({ Address })}
+                            />
+
+                        </KeyboardAvoidingView>
+                        <TouchableOpacity style={styles.button} onPress={() => { this.userSignup(this.state.email, this.state.password); }}>
                             <Text style={styles.signUp}>Sign Up</Text>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
 
 
-                </View>
-            </ScrollView>
-        </View>
-    );
+                    </View>
+                </ScrollView>
+            </View>
+            
+        );
     }
 }
 
@@ -135,26 +159,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#ddd',
     },
     upper: {
-        paddingTop: 10,
+        paddingTop: 4,
         flex: 3,
         paddingBottom: 20,
-        // backgroundColor: '#c9b5aa',
-    },
-    head: {
-        alignSelf: 'center',
-        fontSize: 24,
-        color: 'teal',
-        fontFamily: 'Patua',
+        backgroundColor: '#ddd',
     },
     textInput: {
         marginTop: 10,
         color: 'teal',
+        fontFamily: 'Patua',
         height: 40,
         fontSize: 20,
-        fontFamily: 'Patua',
         marginLeft: 30,
         marginRight: 30,
         paddingLeft: 8,
@@ -176,7 +193,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
     },
     main: {
-        marginTop: 5,
+        marginTop: 15,
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 20,
