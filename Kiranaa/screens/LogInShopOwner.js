@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from "react-native";
+import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView ,TouchableOpacity, ScrollView, Alert, Platform } from "react-native";
 import * as firebase from 'firebase'
 
 
@@ -21,6 +21,10 @@ export default class LogInShopOwner extends React.Component {
 
     render() {
         return (
+            <KeyboardAvoidingView
+            style={{flex:1}} behavior='height'
+            >
+            <ScrollView>
             <View style={styles.container}>
                 <View style={styles.upper}>
                     <Text style={styles.main}>Shop ID:</Text>
@@ -54,7 +58,10 @@ export default class LogInShopOwner extends React.Component {
                     </View>
 
                 </View>
-            </View>
+
+           </View>
+           </ScrollView>
+           </KeyboardAvoidingView>
         );
     }
 }
@@ -72,6 +79,8 @@ const styles = StyleSheet.create({
     lower: {
         flex:1,
         alignContent: 'center',
+        padding: 23,
+        marginTop: 10,
     },
     textInput: {
         marginTop: 20,
