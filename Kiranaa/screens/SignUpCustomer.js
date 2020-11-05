@@ -147,12 +147,14 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 24,
         color: 'teal',
+        fontFamily: 'Patua',
     },
     textInput: {
         marginTop: 10,
         color: 'teal',
         height: 40,
         fontSize: 20,
+        fontFamily: 'Patua',
         marginLeft: 30,
         marginRight: 30,
         paddingLeft: 8,
@@ -165,6 +167,7 @@ const styles = StyleSheet.create({
         color: 'teal',
         height: 70,
         fontSize: 20,
+        fontFamily: 'Patua',
         marginLeft: 30,
         marginRight: 30,
         paddingLeft: 8,
@@ -177,7 +180,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
     button: {
         borderWidth: 2,
@@ -195,6 +198,6 @@ const styles = StyleSheet.create({
     signUp: {
         fontSize: 20,
         color: 'white',
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
 })
