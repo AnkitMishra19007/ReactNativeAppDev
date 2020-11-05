@@ -1,3 +1,4 @@
+import { processFontFamily } from 'expo-font';
 import React from 'react';
 import { StyleSheet, Button, Image, Text, View, TouchableWithoutFeedback, } from 'react-native';
 import { } from 'react-native-gesture-handler';
@@ -67,11 +68,13 @@ const styles = StyleSheet.create({
     },
     alertText: {
         color: 'grey',
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: 'Patua',
     },
     numOrders: {
         color: 'black',
-        fontSize: 26
+        fontSize: 26,
+        fontFamily: 'Patua',
     },
 
     row2: {
