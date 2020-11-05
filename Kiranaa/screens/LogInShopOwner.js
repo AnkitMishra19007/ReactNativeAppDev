@@ -73,15 +73,11 @@ const styles = StyleSheet.create({
         flex:1,
         alignContent: 'center',
     },
-    head: {
-        alignSelf: 'center',
-        fontSize: 24,
-        color: 'teal',
-    },
     textInput: {
         marginTop: 20,
         color: 'teal',
         height: 40,
+        fontFamily: 'Patua',
         fontSize: 20,
         marginLeft: 30,
         marginRight: 30,
@@ -95,12 +91,12 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         marginLeft: 30,
         fontSize: 25,
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
     promt: {
         alignSelf: 'center',
         fontSize: 20,
-        fontStyle: 'italic',
+        fontFamily: 'Patua',
     },
     button: {
         borderWidth: 2,
@@ -118,6 +114,6 @@ const styles = StyleSheet.create({
     signUp: {
         fontSize: 20,
         color: 'white',
-        fontWeight: 'bold',
+        fontFamily: 'Patua',
     },
 })
