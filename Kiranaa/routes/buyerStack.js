@@ -74,7 +74,7 @@ const buyerStack = createStackNavigator(screens, {
         headerTitleStyle: {
             flex: 1,
             fontSize: 22,
-            fontWeight: 'normal',
+            fontFamily: 'Patua',
 
         },
 
