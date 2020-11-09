@@ -35,7 +35,13 @@ export default class StationaryShopsCategory extends React.Component {
                 <ScrollView >
                     <View style={styles.shopList}>
                         {this.state.shopsDetails.map((y) => {
-                            return (<View style={styles.shopDetailCard}><Image style={styles.cardImage} source={require('../assets/images/shopImage.jpg')} /><Text style={styles.cardtext}>{y.Sname}</Text></View>);//<View style={styles.shopDetailCard}><Text>{y.Sname}</Text></View>
+                            //<View style={styles.shopDetailCard}><Text>{y.Sname}</Text></View>
+                            return (<View style={styles.shopDetailCard}>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('ProductsList', y)} >
+                                    <Image style={styles.cardImage} source={require('../assets/images/shopImage.jpg')} />
+                                    <Text style={styles.cardtext}>{y.Sname}</Text>
+                                </TouchableOpacity>
+                            </View>);
                         })
                         }
                     </View>

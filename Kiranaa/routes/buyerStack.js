@@ -4,6 +4,7 @@ import GeneralShopsCategory from '../screens/GeneralShopsCategory';
 import PlasticsShopsCategory from '../screens/PlasticsShopsCategory';
 import StationaryShopsCategory from '../screens/StationaryShopsCategory';
 import GroceriesShopsCategory from '../screens/GroceriesShopsCategory';
+import ProductsList from '../screens/ProductsList';
 import Cart from './Cart.js';
 import Header from '../shared/header';
 import React from 'react';
@@ -59,7 +60,13 @@ const screens = {
         navigationOptions: {
             title: 'Items in Cart',
         },
-    }
+    },
+    ProductsList: {
+        screen: ProductsList,
+        navigationOptions: {
+            title: 'Products List',
+        },
+    },
 }
 
 const buyerStack = createStackNavigator(screens, {
