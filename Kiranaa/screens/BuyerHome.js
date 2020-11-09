@@ -48,7 +48,7 @@ export default class BuyerHome extends React.Component {
 
 
                 <View style={styles.top}>
-                    <TouchableOpacity onPress={() => navigation.navigate('StationaryShopsCategory')} style={styles.part}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('StationaryShopsCategory')} style={styles.part}>
                         <Image source={require('../assets/stationary.png')} style={{ height: 40, width: 40 }} />
                         <Text style={styles.txt}>Stationary</Text>
                     </TouchableOpacity>
@@ -58,7 +58,7 @@ export default class BuyerHome extends React.Component {
                 </View>
 
                 <View style={styles.top}>
-                    <TouchableOpacity onPress={() => navigation.navigate('GeneralShopsCategory')} style={styles.part}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('GeneralShopsCategory')} style={styles.part}>
                         <Image source={require('../assets/supermarket.png')} style={{ height: 40, width: 40 }} />
                         <Text style={styles.txt}>General Store</Text>
                     </TouchableOpacity>
@@ -68,7 +68,7 @@ export default class BuyerHome extends React.Component {
                 </View>
 
                 <View style={styles.top}>
-                    <TouchableOpacity onPress={() => navigation.navigate('PlasticsShopsCategory')} style={styles.part}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('PlasticsShopsCategory')} style={styles.part}>
                         <Image source={require('../assets/sand.png')} style={{ height: 40, width: 40 }} />
                         <Text style={styles.txt}>Plasticware</Text>
                     </TouchableOpacity>
@@ -78,7 +78,7 @@ export default class BuyerHome extends React.Component {
                 </View>
 
                 <View style={styles.top}>
-                    <TouchableOpacity onPress={() => navigation.navigate('GroceriesShopsCategory')} style={styles.part}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('GroceriesShopsCategory')} style={styles.part}>
                         <Image source={require('../assets/vegetable.png')} style={{ height: 40, width: 40 }} />
                         <Text style={styles.txt}>Groceries</Text>
                     </TouchableOpacity>
