@@ -9,7 +9,6 @@ export default class BuyerHome extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            shopsDetails: [],
             nStationary: "",
             nGeneral: "",
             nPlastics: "",
