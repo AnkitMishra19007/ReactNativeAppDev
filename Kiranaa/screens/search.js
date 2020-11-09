@@ -1,21 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { ScrollView } from "react-native-gesture-handler";
 
-export default function search () {
+export default function search() {
     return (
+
         <View style={styles.container}>
 
             <View style={styles.inContainer}>
+
+
+
                 <Text style={styles.texts}>Search product from our database</Text>
                 <TextInput
                     placeholder="product name"
                     style={{ height: 40, borderRadius: 10, borderColor: '#008399', borderWidth: 1, marginTop: 5, fontSize: 17, fontFamily: 'Patua', padding: 5, color: '#008399' }}
                 />
                 <View style={{ marginTop: "5%", alignItems: 'center', justifyContent: 'center', }}>
-                <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Search</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Search</Text></TouchableOpacity>
                 </View>
             </View>
+
         </View>
+
     );
 }
 

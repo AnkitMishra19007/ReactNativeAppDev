@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Button, Image, Text, View, Alert, FlatList, TouchableOpacity, State, ScrollView } from 'react-native';
 //import { ScrollView } from "react-native-gesture-handler";
 import * as firebase from 'firebase';
+import 'firebase/firestore';
 
 
 export default class PlasticsShopsCategory extends React.Component {

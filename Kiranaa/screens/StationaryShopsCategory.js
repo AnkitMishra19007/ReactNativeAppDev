@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Button, Image, Text, View, Alert, FlatList, TouchableOpacity, State, ScrollView } from 'react-native';
 //import { ScrollView } from "react-native-gesture-handler";
 import * as firebase from 'firebase';
+import 'firebase/firestore';
 
 
 export default class StationaryShopsCategory extends React.Component {
@@ -17,6 +18,7 @@ export default class StationaryShopsCategory extends React.Component {
         db.collection("users_SO").where("SCategory", "==", "Stationary")
             .get()
             .then(querySnapshot => {
+                //console.log(querySnapshot.size);
                 const data = querySnapshot.docs.map(doc => doc.data());
                 //console.log(data);
                 this.setState({ shopsDetails: data });
