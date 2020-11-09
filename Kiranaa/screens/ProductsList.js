@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#C0392B',
         fontWeight: "bold",
+        fontSize: 24,
     },
 
 });
