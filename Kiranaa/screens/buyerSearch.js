@@ -9,7 +9,7 @@ export default function search () {
                 <Text style={styles.texts}>Search product from our database</Text>
                 <TextInput
                     placeholder="eg. Mustard Oil"
-                    style={{ height: 40, borderRadius: 10, borderColor: '#C63D11', borderWidth: 1, marginTop: 15, fontSize: 17, fontFamily: 'Patua', padding: 5, color: '#008399' }}
+                    style={{ height: 40, borderRadius: 10, borderColor: '#C63D11', borderWidth: 1, marginTop: 15, fontSize: 17, fontFamily: 'Patua', padding: 5, color: '#965' }}
                 />
                 <View style={{ marginTop: "5%", alignItems: 'center', justifyContent: 'center', }}>
                 <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Search</Text></TouchableOpacity>
