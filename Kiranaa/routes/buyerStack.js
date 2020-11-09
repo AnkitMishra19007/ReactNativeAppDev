@@ -5,10 +5,11 @@ import PlasticsShopsCategory from '../screens/PlasticsShopsCategory';
 import StationaryShopsCategory from '../screens/StationaryShopsCategory';
 import GroceriesShopsCategory from '../screens/GroceriesShopsCategory';
 import ProductsList from '../screens/ProductsList';
+import buyerSearch from '../screens/buyerSearch';
 import Cart from './Cart.js';
 import Header from '../shared/header';
 import React from 'react';
-import { Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const screens = {
@@ -21,12 +22,20 @@ const screens = {
                     return null;
                 },
                 headerRight: () => (
+                    <View style={{flexDirection:"row"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('buyerSearch')}>
+                        <Image
+                            style={{ width: 30, height: 30, marginRight: 20, }}
+                            source={require("../assets/icons/search1.png")}
+                        />
+                    </TouchableOpacity>                   
                     <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
                         <Image
                             style={{ width: 30, height: 30, marginRight: 25, }}
                             source={require("../assets/icons/shopping-cart.png")}
                         />
                     </TouchableOpacity>
+                    </View>
                 )
             }
         }
@@ -61,12 +70,19 @@ const screens = {
             title: 'Items in Cart',
         },
     },
+    buyerSearch:{
+        screen: buyerSearch,
+        navigationOptions:{
+            title: 'Search any product',
+        }
+    },
     ProductsList: {
         screen: ProductsList,
         navigationOptions: {
             title: 'Products List',
         },
     },
+
 }
 
 const buyerStack = createStackNavigator(screens, {
