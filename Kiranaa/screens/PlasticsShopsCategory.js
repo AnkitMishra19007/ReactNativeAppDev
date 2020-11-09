@@ -34,7 +34,12 @@ export default class PlasticsShopsCategory extends React.Component {
                 <ScrollView >
                     <View style={styles.shopList}>
                         {this.state.shopsDetails.map((y) => {
-                            return (<View style={styles.shopDetailCard}><Image style={styles.cardImage} source={require('../assets/images/shopImage.jpg')} /><Text style={styles.cardtext}>{y.Sname}</Text></View>);//<View style={styles.shopDetailCard}><Text>{y.Sname}</Text></View>
+                            return (<View style={styles.shopDetailCard}>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('ProductsList', y)} >
+                                    <Image style={styles.cardImage} source={require('../assets/images/shopImage.jpg')} />
+                                    <Text style={styles.cardtext}>{y.Sname}</Text>
+                                </TouchableOpacity>
+                            </View>);
                         })
                         }
                     </View>
@@ -55,19 +60,15 @@ const styles = StyleSheet.create({
         flex: 1,
         flexWrap: 'wrap',
         flexDirection: 'row',
-        marginHorizontal: 5,
         marginVertical: 10,
         justifyContent: 'space-evenly',
 
     },
     shopDetailCard: {
         alignItems: 'center',
-        flexBasis: '49%',
+        flexBasis: '49.8%',
         backgroundColor: "#fff",
         height: 250,
-        borderRadius: 4,
-        marginBottom: 4,
-
     },
     cardImage: {
         marginTop: 30,
@@ -78,5 +79,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 20
     }
+
 
 });

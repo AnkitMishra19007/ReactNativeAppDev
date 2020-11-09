@@ -62,19 +62,15 @@ const styles = StyleSheet.create({
         flex: 1,
         flexWrap: 'wrap',
         flexDirection: 'row',
-        marginHorizontal: 5,
         marginVertical: 10,
         justifyContent: 'space-evenly',
 
     },
     shopDetailCard: {
         alignItems: 'center',
-        flexBasis: '49%',
+        flexBasis: '49.8%',
         backgroundColor: "#fff",
         height: 250,
-        borderRadius: 4,
-        marginBottom: 4,
-
     },
     cardImage: {
         marginTop: 30,
