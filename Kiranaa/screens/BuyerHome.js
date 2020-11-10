@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Button, Image, Text, View, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Button, Image, Text, View, ActivityIndicator,TouchableOpacity,} from 'react-native';
 import * as firebase from 'firebase';
 import 'firebase/firestore';
-//<TouchableOpacity onPress={() => navigation.navigate('StationaryShopsCategory')}>
-//<Image source={require('../assets/stationary.png')} /></TouchableOpacity>
+import mainService from './mainService';
 
 export default class BuyerHome extends React.Component {
+    state={
+        loaded: false,
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -14,6 +16,7 @@ export default class BuyerHome extends React.Component {
             nPlastics: "",
             nGroceries: "",
         };
+        mainService.load(v => this.setState({loaded: true}));
     }
     componentDidMount() {
         const db = firebase.firestore();
@@ -37,15 +40,19 @@ export default class BuyerHome extends React.Component {
             .then(querySnapshot => {
                 this.setState({ nGroceries: querySnapshot.size });
             });
-
     }
     render() {
+        if(!this.state.loaded){
+            return(
+                <View style={{flex: 1,justifyContent: 'center'}}>
+                <ActivityIndicator size="large" color="indianred" />
+                </View>
+            );
+        }
         return (
 
             <View style={styles.container}>
                 <Text style={styles.txt1}>Available shops near you</Text>
-
-
                 <View style={styles.top}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('StationaryShopsCategory')} style={styles.part}>
                         <Image source={require('../assets/stationary.png')} style={{ height: 40, width: 40 }} />
