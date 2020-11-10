@@ -34,7 +34,7 @@ export default class ProductsList extends React.Component {
                     <View style={styles.productsList}>
                         {this.state.productsDetails.map((y) => {
                             return (<View style={styles.productDetailCard}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate('', y)} >
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('ParticularProduct', y)} >
 
                                     <Image style={styles.cardImage} source={{ uri: y.productImage }} />
                                     <Text style={styles.productName}>{y.name}</Text>

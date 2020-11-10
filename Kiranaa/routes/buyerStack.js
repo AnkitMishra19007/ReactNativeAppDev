@@ -5,6 +5,7 @@ import PlasticsShopsCategory from '../screens/PlasticsShopsCategory';
 import StationaryShopsCategory from '../screens/StationaryShopsCategory';
 import GroceriesShopsCategory from '../screens/GroceriesShopsCategory';
 import ProductsList from '../screens/ProductsList';
+import ParticularProduct from '../screens/ParticularProduct'
 import buyerSearch from '../screens/buyerSearch';
 import Cart from './Cart.js';
 import Header from '../shared/header';
@@ -22,19 +23,19 @@ const screens = {
                     return null;
                 },
                 headerRight: () => (
-                    <View style={{flexDirection:"row"}}>
-                    <TouchableOpacity onPress={() => navigation.navigate('buyerSearch')}>
-                        <Image
-                            style={{ width: 30, height: 30, marginRight: 20, }}
-                            source={require("../assets/icons/search1.png")}
-                        />
-                    </TouchableOpacity>                   
-                    <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-                        <Image
-                            style={{ width: 30, height: 30, marginRight: 25, }}
-                            source={require("../assets/icons/shopping-cart.png")}
-                        />
-                    </TouchableOpacity>
+                    <View style={{ flexDirection: "row" }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('buyerSearch')}>
+                            <Image
+                                style={{ width: 30, height: 30, marginRight: 20, }}
+                                source={require("../assets/icons/search1.png")}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                            <Image
+                                style={{ width: 30, height: 30, marginRight: 25, }}
+                                source={require("../assets/icons/shopping-cart.png")}
+                            />
+                        </TouchableOpacity>
                     </View>
                 )
             }
@@ -70,9 +71,9 @@ const screens = {
             title: 'Items in Cart',
         },
     },
-    buyerSearch:{
+    buyerSearch: {
         screen: buyerSearch,
-        navigationOptions:{
+        navigationOptions: {
             title: 'Search any product',
         }
     },
@@ -80,6 +81,12 @@ const screens = {
         screen: ProductsList,
         navigationOptions: {
             title: 'Products List',
+        },
+    },
+    ParticularProduct: {
+        screen: ParticularProduct,
+        navigationOptions: {
+            title: '',
         },
     },
 

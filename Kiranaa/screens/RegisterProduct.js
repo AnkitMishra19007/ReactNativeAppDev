@@ -7,18 +7,51 @@ import * as Permissions from 'expo-permissions';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 export default class RegisterProduct extends React.Component {
-    state = {
-        name: "",
-        brand: "",
-        MRP: "",
-        SP: "",
-        expDate: "",
-        quantity: "",
-        unit: "",
-        sID: "",
-        productID: "",
-        productImage: "",
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            brand: "",
+            MRP: "",
+            SP: "",
+            expDate: "",
+            quantity: "",
+            unit: "",
+            sID: "",
+            productID: "",
+            productImage: "",
+            shopEmail: "",
+            productDescription: "",
+        };
     }
+
+    componentDidMount() {
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                console.log("email :", user.email);
+                const db = firebase.firestore();
+                db.collection("users_SO").where("Email", "==", user.email)
+                    .get()
+                    .then(function (querySnapshot) {
+                        querySnapshot.forEach(function (doc) {
+                            var data = doc.data()
+                            console.log(data.sID);
+                            this.setState({ shopEmail: data.sID })
+                            console.log(this.state.shopEmail);
+                        });
+                    })
+
+            } else {
+                Alert.alert("Sign in first!");
+            }
+        });
+
+
+
+
+    }
+
     register() {
 
         const db = firebase.firestore();
@@ -33,6 +66,8 @@ export default class RegisterProduct extends React.Component {
             sID: this.state.sID,
             productID: this.state.name[0].concat(this.state.name[1], this.state.name[2], Math.floor((Math.random() * 10)), Math.floor((Math.random() * 10))),
             productImage: this.state.productImage,
+            Email: this.state.shopEmail,
+            productDescription: this.state.productDescription,
         })
 
             .then(function () {
@@ -103,6 +138,8 @@ export default class RegisterProduct extends React.Component {
         var ref = firebase.storage().ref().child("productImages/" + Date().toLocaleString().replace(/\s/g, ""));
         ref.put(blob).then(function (result) {
             ref.getDownloadURL().then(function (result) {
+
+                setState({ productImage: ref.getDownloadURL() })
                 //this.setState({ productImage: "result " })
             });
 
@@ -166,37 +203,49 @@ export default class RegisterProduct extends React.Component {
                                     onChangeText={(quantity) => this.setState({ quantity })}
                                 />
                             </View>
-                            <View style={{ flexDirection: "column",flex: 0.3 }}>
+                            <View style={{ flexDirection: "column", flex: 0.3 }}>
                                 <Text style={styles.texts}>Unit</Text>
                                 <DropDownPicker
                                     style={styles.drop}
                                     items={[
-                                    {label: 'Pcs', value: 'Pcs'},
-                                    {label: 'Kg', value: 'Kg'},
-                                    {label: 'g', value: 'g'},
-                                    {label: 'Ltr', value: 'Ltr'},
+                                        { label: 'Pcs', value: 'Pcs' },
+                                        { label: 'Kg', value: 'Kg' },
+                                        { label: 'g', value: 'g' },
+                                        { label: 'Ltr', value: 'Ltr' },
                                     ]}
                                     placeholder="Unit"
+                                    onChangeItem={item => this.setState({
+                                        unit: item.value
+                                    })}
                                 />
                             </View>
                         </View>
+                        <Text style={styles.texts}>Product Description</Text>
+                        <TextInput
+                            placeholder="Product Description"
+
+                            style={styles.inp}
+                            value={this.state.productDescription}
+                            onChangeText={(productDescription) => this.setState({ productDescription })}
+                        />
                         <View style={{ flexDirection: "row", alignItems: "center" }}>
                             <Text style={styles.texts}>Add Image</Text>
                             <TouchableOpacity onPress={() => { this.chooseCamera() }} style={styles.cam}>
-                            <Image
-                                style={{ width: 30, height: 30,}}
-                                source={require("../assets/icons/camera.png")}/>
+                                <Image
+                                    style={{ width: 30, height: 30, }}
+                                    source={require("../assets/icons/camera.png")} />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => { this.chooseGallery() }} style={styles.cam}>
-                            <Image
-                                style={{ width: 30, height: 30,}}
-                                source={require("../assets/icons/upload.png")}/>
+                                <Image
+                                    style={{ width: 30, height: 30, }}
+                                    source={require("../assets/icons/upload.png")} />
                             </TouchableOpacity>
 
                         </View>
                         <TouchableOpacity onPress={() => { this.register() }} style={styles.button}><Text style={styles.txt}>Done</Text></TouchableOpacity>
-                    
+                        <TouchableOpacity onPress={() => { this.getCurrentUserDetails() }} style={styles.button}><Text style={styles.txt}>Done</Text></TouchableOpacity>
                     </View>
+
 
                 </ScrollView>
             </View>
@@ -210,7 +259,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
 
     },
-    inp:{
+    inp: {
         height: 40,
         borderRadius: 10,
         borderColor: '#008399',
@@ -264,13 +313,13 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#383A3E'
     },
-    cam:{
+    cam: {
         marginLeft: 35,
         marginTop: 10,
         borderWidth: 2,
         padding: 2,
     },
-    drop:{
+    drop: {
         borderColor: '#008399',
         marginTop: 6,
         height: 38,
