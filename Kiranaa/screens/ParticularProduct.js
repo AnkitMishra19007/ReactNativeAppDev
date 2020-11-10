@@ -31,34 +31,37 @@ export default class ParticularProduct extends React.Component {
         console.log(this.state.productImage);
         return (
             <View style={styles.container}>
+                <ScrollView>
+                    <View style={styles.Container}>
+                        <Image style={styles.productImage} source={{ uri: this.props.navigation.getParam('productImage') }} />
+                        <Text style={styles.productName}>{this.state.name}</Text>
+                        <Text style={styles.productBrand}>by {this.state.brand}</Text>
+                        <Text style={styles.productMRP}>₹{this.state.MRP}</Text>
+                        <View style={styles.buttons}>
+                            <View style={styles.btn1}>
+                                <Button
 
-                <Image style={styles.cardImage} source={{ uri: this.props.navigation.getParam('productImage') }} />
-                <Text style={styles.productName}>{this.state.name}</Text>
-                <Text style={styles.productBrand}>by {this.state.brand}</Text>
-                <Text style={styles.productMRP}>₹{this.state.MRP}</Text>
-                <View style={styles.buttons}>
-                    <View style={styles.btn1}>
-                        <Button
+                                    title="ADD TO CART"
+                                    color="#E44838"
 
-                            title="ADD TO CART"
-                            color="#E44838"
+                                />
+                            </View>
+                            <View style={styles.btn2}>
+                                <Button
 
-                        />
-                    </View>
-                    <View style={styles.btn2}>
-                        <Button
+                                    title="BUY NOW"
+                                    color="#E44838"
 
-                            title="BUY NOW"
-                            color="#E44838"
+                                />
+                            </View>
+                        </View>
+                        <View style={styles.line}>
 
-                        />
-                    </View>
-                </View>
-                <View style={styles.line}>
-
-                </View>
-                <Text style={styles.productDetails}>Product Details</Text>
-                <Text style={styles.productDescription}>{this.state.productDescription}</Text>
+                        </View>
+                        <Text style={styles.productDetails}>Product Details</Text>
+                        <Text style={styles.productDescription}>{this.state.productDescription}</Text>
+                    </View >
+                </ScrollView>
 
             </View >
         );
@@ -67,6 +70,13 @@ export default class ParticularProduct extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: 'center',
+
+    },
+    Container: {
+        marginTop: 10,
         flex: 1,
         backgroundColor: "#fff",
         alignItems: 'center',
@@ -84,10 +94,9 @@ const styles = StyleSheet.create({
         width: "40%",
         marginHorizontal: 20
     },
-    cardImage: {
-        resizeMode: "contain",
-        height: "50%",
-        width: "80%"
+    productImage: {
+        height: 200,
+        width: 200
 
     },
     productName: {
