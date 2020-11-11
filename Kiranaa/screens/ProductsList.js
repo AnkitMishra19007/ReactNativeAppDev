@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Button, Image, Text, View, Alert, FlatList, TouchableOpacity, State, ScrollView } from 'react-native';
+import { StyleSheet, Button, Image, Text, View, ActivityIndicator, FlatList, TouchableOpacity, State, ScrollView } from 'react-native';
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 import { color } from 'react-native-reanimated';
+import mainService from './mainService';
 
 export default class ProductsList extends React.Component {
-
+    state={
+        loaded: false,
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -13,6 +16,7 @@ export default class ProductsList extends React.Component {
             sID: this.props.navigation.getParam('sID'),
             productsDetails: [],
         };
+        mainService.load(v => this.setState({loaded: true}));
     }
     componentDidMount() {
         const db = firebase.firestore();
@@ -26,6 +30,13 @@ export default class ProductsList extends React.Component {
             });
     }
     render() {
+        if(!this.state.loaded){
+            return(
+                <View style={{flex: 1,justifyContent: 'center'}}>
+                <ActivityIndicator size="large" color="indianred" />
+                </View>
+            );
+        }
 
         return (
             <View style={styles.container}>
@@ -33,16 +44,23 @@ export default class ProductsList extends React.Component {
                 <ScrollView >
                     <View style={styles.productsList}>
                         {this.state.productsDetails.map((y) => {
-                            return (<View style={styles.productDetailCard}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate('ParticularProduct', y)} >
-
-                                    <Image style={styles.cardImage} source={{ uri: y.productImage }} />
-                                    <Text style={styles.productName}>{y.name}</Text>
-                                    <Text style={styles.productBrand}>by {y.brand}</Text>
-                                    <Text style={styles.productMRP}>₹{y.MRP}</Text>
+                            return (
+                                <TouchableOpacity style={styles.every} onPress={() => this.props.navigation.navigate('ParticularProduct', y)} >
+                                        <View style={styles.left}>
+                                        <Image style={styles.cardImage} source={{ uri: y.productImage }} />
+                                        </View>
+                                        <View style={styles.middle}>
+                                        <Text style={styles.productName}>{y.name}</Text>
+                                        <Text style={styles.productBrand}>{y.brand}</Text>
+                                        </View>
+                                        <View style={styles.right}>
+                                        <Text style={styles.productMRP}>₹{y.MRP}</Text>
+                                        </View>
                                 </TouchableOpacity>
-                            </View>);
-                        })
+                             
+                            );
+                        }
+                        )
                         }
                     </View>
                 </ScrollView>
@@ -57,55 +75,61 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#D3D3D3",
-        alignItems: 'center',
     },
     Sname: {
-
+        alignSelf: 'center'
     },
 
     productsList: {
         flex: 1,
-        flexWrap: 'wrap',
-        flexDirection: 'row',
         marginHorizontal: 5,
         marginVertical: 10,
-        justifyContent: 'space-evenly',
-
     },
-    productDetailCard: {
-        alignItems: 'center',
-        flexBasis: '49.8%',
-        backgroundColor: "#fff",
-        height: 350,
-
-
-    },
-    cardImageView: {
-        marginTop: 30,
-        height: 400,
-        width: 150
+    every:{
+        flex:1,
+        flexDirection: 'row',
+        borderWidth: 2,
+        borderColor: '#caa',
+        backgroundColor: '#ffe',
+        borderRadius: 20,
     },
     cardImage: {
-        marginTop: 30,
-        resizeMode: "contain",
-        height: 150,
-        width: 150
-
+        height: 100,
+        width: 100,
+        borderRadius: 20,
+        borderColor: '#caa',
+        borderWidth: 1,
+    },
+    left:{
+        flex: 1,
+        margin: 5,
+    },
+    middle:{
+        flex: 1.2,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',  
+    },
+    right:{
+        flex: 0.7,
+        justifyContent: 'center',
+        alignItems: 'center',  
     },
     productName: {
         marginTop: 10,
-        fontSize: 20,
-        fontWeight: "bold",
+        fontSize: 25,
+        fontFamily: 'Patua',
     },
     productBrand: {
         fontSize: 16,
-        color: '#909497'
+        color: '#909497',
+        fontFamily: 'Patua',
     },
     productMRP: {
         marginTop: 10,
         fontSize: 20,
         color: '#C0392B',
-        fontWeight: "bold",
+        fontFamily: 'Patua',
         fontSize: 24,
     },
 
