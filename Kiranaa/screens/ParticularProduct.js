@@ -33,7 +33,7 @@ export default class ParticularProduct extends React.Component {
         const customer = db.collection('cart').doc(this.state.cID);
 
 
-        customer.set({
+        customer.update({
             [this.state.productID]: this.state.quantitySelected,
 
         })
