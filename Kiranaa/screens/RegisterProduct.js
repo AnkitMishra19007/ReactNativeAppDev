@@ -102,7 +102,7 @@ export default class RegisterProduct extends React.Component {
                 this.uploadImage(result.uri, "test")
                     .then(() => {
 
-                        Alert.alert("Image uploaded.");
+
                     })
                     .catch((error) => {
                         Alert.alert('Error: ', error.message);
@@ -124,7 +124,7 @@ export default class RegisterProduct extends React.Component {
             if (!result.cancelled) {
                 this.uploadImage(result.uri, "test")
                     .then(() => {
-                        Alert.alert("Image uploaded.");
+
                     })
                     .catch((error) => {
                         Alert.alert('Error: ', error.message);
@@ -136,11 +136,13 @@ export default class RegisterProduct extends React.Component {
         const response = await fetch(uri);
         const blob = await response.blob();
         var ref = firebase.storage().ref().child("productImages/" + Date().toLocaleString().replace(/\s/g, ""));
-        ref.put(blob).then(function (result) {
-            ref.getDownloadURL().then(function (result) {
+        ref.put(blob).then((result) => {
+            ref.getDownloadURL().then((result) => {
 
-
-                //this.setState({ productImage: "result " })
+                this.setState({ productImage: result })
+                console.log(result)
+                console.log(this.state.productImage)
+                Alert.alert("Image uploaded.");
             });
 
 

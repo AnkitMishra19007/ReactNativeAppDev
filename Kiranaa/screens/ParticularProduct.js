@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, Image, Text, View, Alert, FlatList, TouchableOpacity, State, ScrollView } from 'react-native';
+import { StyleSheet, Button, Image, Text, View, Alert, FlatList, TouchableOpacity, State, ScrollView, TextInput, } from 'react-native';
 //import { ScrollView } from "react-native-gesture-handler";
 import * as firebase from 'firebase';
 import 'firebase/firestore';
@@ -22,13 +22,34 @@ export default class ParticularProduct extends React.Component {
             quantity: this.props.navigation.getParam('quantity'),
             sID: this.props.navigation.getParam('sID'),
             unit: this.props.navigation.getParam('unit'),
+            quantitySelected: "",
+            cID: "1234",
 
 
         };
     }
+    updateCart() {
+        const db = firebase.firestore();
+        const customer = db.collection('cart').doc(this.state.cID)
+            .collection(this.state.productID).doc(this.state.productID);
 
+        customer.set({
+            productId: this.state.productID,
+            quantitySelected: this.state.quantitySelected,
+
+        })
+            .then(function () {
+                //console.log("Document successfully written!");
+                Alert.alert("Document successfully written!")
+
+            })
+            .catch(function (error) {
+                console.error("Error writing document: ", error);
+            });
+    }
     render() {
         console.log(this.state.productImage);
+        console.log(this.state.productID);
         return (
             <View style={styles.container}>
                 <ScrollView>
@@ -40,7 +61,7 @@ export default class ParticularProduct extends React.Component {
                         <View style={styles.buttons}>
                             <View style={styles.btn1}>
                                 <Button
-
+                                    onPress={() => { this.updateCart() }}
                                     title="ADD TO CART"
                                     color="#E44838"
 
@@ -55,6 +76,19 @@ export default class ParticularProduct extends React.Component {
                                 />
                             </View>
                         </View>
+                        <Text >Quantity</Text>
+                        <TextInput
+                            keyboardType={"number-pad"}
+                            style={{
+                                borderWidth: 2,
+                                borderRadius: 10,
+                                borderColor: 'black',
+                            }}
+
+                            placeholder="Quantity"
+                            value={this.state.quantitySelected}
+                            onChangeText={(quantitySelected) => this.setState({ quantitySelected })}
+                        />
                         <View style={styles.line}>
 
                         </View>
