@@ -23,19 +23,18 @@ export default class ParticularProduct extends React.Component {
             sID: this.props.navigation.getParam('sID'),
             unit: this.props.navigation.getParam('unit'),
             quantitySelected: "",
-            cID: "1234",
+            cID: "12345",
 
 
         };
     }
     updateCart() {
         const db = firebase.firestore();
-        const customer = db.collection('cart').doc(this.state.cID)
-            .collection(this.state.productID).doc(this.state.productID);
+        const customer = db.collection('cart').doc(this.state.cID);
+
 
         customer.set({
-            productId: this.state.productID,
-            quantitySelected: this.state.quantitySelected,
+            [this.state.productID]: this.state.quantitySelected,
 
         })
             .then(function () {
