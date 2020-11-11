@@ -139,11 +139,11 @@ export default class RegisterProduct extends React.Component {
         ref.put(blob).then(function (result) {
             ref.getDownloadURL().then(function (result) {
 
-                setState({ productImage: ref.getDownloadURL() })
+
                 //this.setState({ productImage: "result " })
             });
 
-            // this.setState({ productImage: await ref.getDownloadURL() })
+
         });
 
 

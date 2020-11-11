@@ -1,8 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from "react-native";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert, Image } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import * as firebase from 'firebase'
-
+import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default class SignUpShopOwner extends React.Component {
 
@@ -71,7 +73,67 @@ export default class SignUpShopOwner extends React.Component {
             })
 
     }
+    chooseCamera = async () => {
 
+        const { granted } = await Permissions.askAsync(Permissions.CAMERA)
+        if (granted) {
+            let result = await ImagePicker.launchCameraAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                allowsEditing: true,
+                aspect: [1, 1],
+                quality: 0.5
+            })
+            if (!result.cancelled) {
+                this.uploadImage(result.uri, "test")
+                    .then(() => {
+
+                        Alert.alert("Image uploaded.");
+                    })
+                    .catch((error) => {
+                        Alert.alert('Error: ', error.message);
+                    });
+            }
+        }
+
+    }
+    chooseGallery = async () => {
+
+        const { granted } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
+        if (granted) {
+            let result = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                allowsEditing: true,
+                aspect: [1, 1],
+                quality: 0.5
+            })
+            if (!result.cancelled) {
+                this.uploadImage(result.uri, "test")
+                    .then(() => {
+                        Alert.alert("Image uploaded.");
+                    })
+                    .catch((error) => {
+                        Alert.alert('Error: ', error.message);
+                    });
+            }
+        }
+    }
+    uploadImage = async (uri, imageFileName) => {
+        const response = await fetch(uri);
+        const blob = await response.blob();
+        var ref = firebase.storage().ref().child("productImages/" + Date().toLocaleString().replace(/\s/g, ""));
+        ref.put(blob).then(function (result) {
+            ref.getDownloadURL().then(function (result) {
+
+
+                //this.setState({ productImage: "result " })
+            });
+
+
+        });
+
+
+
+    }
     render() {
         return (
             <View style={styles.container} >
@@ -95,12 +157,18 @@ export default class SignUpShopOwner extends React.Component {
                                 onChangeText={(SOname) => this.setState({ SOname })}
                             />
                             <Text style={styles.main}>Shop Category:</Text>
-                            <TextInput
-                                placeholder="Category"
-                                placeholderTextColor='#808080'
-                                style={styles.textInput}
-                                value={this.state.SCategory}
-                                onChangeText={(SCategory) => this.setState({ SCategory })}
+                            <DropDownPicker
+                                style={styles.drop}
+                                items={[
+                                    { label: 'General', value: 'General' },
+                                    { label: 'Groceries', value: 'Groceries' },
+                                    { label: 'Plastics', value: 'Plastics' },
+                                    { label: 'Stationary', value: 'Stationary' },
+                                ]}
+                                placeholder="Shop Category"
+                                onChangeItem={item => this.setState({
+                                    SCategory: item.value
+                                })}
                             />
                             <Text style={styles.main}>E mail:</Text>
                             <TextInput
@@ -140,7 +208,20 @@ export default class SignUpShopOwner extends React.Component {
                                 value={this.state.Address}
                                 onChangeText={(Address) => this.setState({ Address })}
                             />
+                            <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                <Text style={styles.main}>Shop photo:</Text>
+                                <TouchableOpacity onPress={() => { this.chooseCamera() }} style={styles.cam}>
+                                    <Image
+                                        style={{ width: 30, height: 30, }}
+                                        source={require("../assets/icons/camera.png")} />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => { this.chooseGallery() }} style={styles.cam}>
+                                    <Image
+                                        style={{ width: 30, height: 30, }}
+                                        source={require("../assets/icons/upload.png")} />
+                                </TouchableOpacity>
 
+                            </View>
                         </KeyboardAvoidingView>
                         <TouchableOpacity style={styles.button} onPress={() => { this.userSignup(this.state.email, this.state.password); }}>
                             <Text style={styles.signUp}>Sign Up</Text>
@@ -150,7 +231,7 @@ export default class SignUpShopOwner extends React.Component {
                     </View>
                 </ScrollView>
             </View>
-            
+
         );
     }
 }
@@ -217,4 +298,24 @@ const styles = StyleSheet.create({
         color: 'white',
         fontFamily: 'Patua',
     },
+    cam: {
+        marginLeft: 35,
+        marginTop: 10,
+        borderWidth: 2,
+        padding: 2,
+    },
+    drop: {
+        backgroundColor: '#ddd',
+        paddingLeft: 8,
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#777',
+        marginTop: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        height: 38,
+        color: 'teal',
+        fontFamily: 'Patua',
+
+    }
 })

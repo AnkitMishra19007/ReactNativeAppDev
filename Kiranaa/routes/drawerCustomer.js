@@ -3,20 +3,21 @@ import { createAppContainer } from 'react-navigation';
 import React from 'react';
 import { Image } from 'react-native';
 import buyerStack from './buyerStack';
+import LogOut from '../screens/LogOut';
 import CustomerProfile from './CustomerProfile';
 import CustomerPast from './CustomerPast';
 import { color } from 'react-native-reanimated';
 
 
-const RootDrawerNavigator=createDrawerNavigator({
-    Home:{
+const RootDrawerNavigator = createDrawerNavigator({
+    Home: {
         screen: buyerStack,//What we want to show
-        navigationOptions:{
+        navigationOptions: {
             title: 'Products',
             drawerIcon: (
                 <Image
-                style={{width:24,height:24}}
-                source={require("../assets/icons/box.png")}
+                    style={{ width: 24, height: 24 }}
+                    source={require("../assets/icons/box.png")}
                 />
             ),
         }
@@ -24,7 +25,7 @@ const RootDrawerNavigator=createDrawerNavigator({
     },
     MyProfile: {
         screen: CustomerProfile,
-        navigationOptions:{
+        navigationOptions: {
             title: 'My Profile',
             drawerIcon: (
                 <Image
@@ -36,39 +37,40 @@ const RootDrawerNavigator=createDrawerNavigator({
     },
     History: {
         screen: CustomerPast,
-        navigationOptions:{
+        navigationOptions: {
             title: 'History',
             drawerIcon: (
                 <Image
-                style={{width:24,height:24}}
-                source={require("../assets/icons/history.png")}
+                    style={{ width: 24, height: 24 }}
+                    source={require("../assets/icons/history.png")}
                 />
             ),
         }
     },
     Complain: {
         screen: CustomerProfile,
-        navigationOptions:{
+        navigationOptions: {
             title: 'Complain',
             drawerIcon: (
                 <Image
-                style={{width:24,height:24}}
-                source={require("../assets/icons/inbox.png")}
+                    style={{ width: 24, height: 24 }}
+                    source={require("../assets/icons/inbox.png")}
                 />
             ),
         }
     },
     LogOut: {
-        screen: CustomerProfile,
-        navigationOptions:{
+        screen: LogOut,
+        navigationOptions: {
             title: 'Log Out',
             drawerIcon: (
                 <Image
-                style={{width:24,height:24}}
-                source={require("../assets/icons/out.png")}
+                    style={{ width: 24, height: 24 }}
+                    source={require("../assets/icons/out.png")}
                 />
             ),
         }
     },
+
 });
 export default createAppContainer(RootDrawerNavigator);
