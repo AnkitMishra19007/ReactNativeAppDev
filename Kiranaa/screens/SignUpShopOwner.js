@@ -165,7 +165,19 @@ export default class SignUpShopOwner extends React.Component {
                                     { label: 'Plastics', value: 'Plastics' },
                                     { label: 'Stationary', value: 'Stationary' },
                                 ]}
+                                itemStyle={{color: 'pink'}}
                                 placeholder="Shop Category"
+                                placeholderStyle={{
+                                    fontFamily: 'Patua',
+                                    color: '#808080',
+                                    fontSize: 20,
+                                }}
+                                labelStyle={{
+                                    fontSize: 20,
+                                    fontFamily: 'Patua',
+                                    color: 'teal'
+                                }}
+                                dropDownStyle={{width: '80%', alignSelf: 'center'}}
                                 onChangeItem={item => this.setState({
                                     SCategory: item.value
                                 })}
