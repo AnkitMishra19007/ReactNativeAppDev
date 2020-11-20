@@ -68,7 +68,7 @@ const screens = {
     Cart: {
         screen: Cart,
         navigationOptions: {
-            title: 'Items in Cart',
+            title: 'Cart',
         },
     },
     buyerSearch: {

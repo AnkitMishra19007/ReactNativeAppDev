@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Button, Image, Text, View, ActivityIndicator,TouchableOpacity,} from 'react-native';
+import { StyleSheet, Button, Image, Text, View, ActivityIndicator, TouchableOpacity, } from 'react-native';
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 import mainService from './mainService';
 
 export default class BuyerHome extends React.Component {
-    state={
+    state = {
         loaded: false,
     }
     constructor(props) {
@@ -16,7 +16,7 @@ export default class BuyerHome extends React.Component {
             nPlastics: "",
             nGroceries: "",
         };
-        mainService.load(v => this.setState({loaded: true}));
+        mainService.load(v => this.setState({ loaded: true }));
     }
     componentDidMount() {
         const db = firebase.firestore();
@@ -42,10 +42,10 @@ export default class BuyerHome extends React.Component {
             });
     }
     render() {
-        if(!this.state.loaded){
-            return(
-                <View style={{flex: 1,justifyContent: 'center'}}>
-                <ActivityIndicator size="large" color="indianred" />
+        if (!this.state.loaded) {
+            return (
+                <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" color="indianred" />
                 </View>
             );
         }

@@ -6,7 +6,7 @@ import { color } from 'react-native-reanimated';
 import mainService from './mainService';
 
 export default class ProductsList extends React.Component {
-    state={
+    state = {
         loaded: false,
     }
     constructor(props) {
@@ -16,7 +16,7 @@ export default class ProductsList extends React.Component {
             sID: this.props.navigation.getParam('sID'),
             productsDetails: [],
         };
-        mainService.load(v => this.setState({loaded: true}));
+        mainService.load(v => this.setState({ loaded: true }));
     }
     componentDidMount() {
         const db = firebase.firestore();
@@ -27,13 +27,14 @@ export default class ProductsList extends React.Component {
                 const data = querySnapshot.docs.map(doc => doc.data());
                 //console.log(data);
                 this.setState({ productsDetails: data });
+                console.log(this.state.productsDetails);
             });
     }
     render() {
-        if(!this.state.loaded){
-            return(
-                <View style={{flex: 1,justifyContent: 'center'}}>
-                <ActivityIndicator size="large" color="indianred" />
+        if (!this.state.loaded) {
+            return (
+                <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" color="indianred" />
                 </View>
             );
         }
@@ -46,18 +47,18 @@ export default class ProductsList extends React.Component {
                         {this.state.productsDetails.map((y) => {
                             return (
                                 <TouchableOpacity style={styles.every} onPress={() => this.props.navigation.navigate('ParticularProduct', y)} >
-                                        <View style={styles.left}>
+                                    <View style={styles.left}>
                                         <Image style={styles.cardImage} source={{ uri: y.productImage }} />
-                                        </View>
-                                        <View style={styles.middle}>
+                                    </View>
+                                    <View style={styles.middle}>
                                         <Text style={styles.productName}>{y.name}</Text>
                                         <Text style={styles.productBrand}>{y.brand}</Text>
-                                        </View>
-                                        <View style={styles.right}>
+                                    </View>
+                                    <View style={styles.right}>
                                         <Text style={styles.productMRP}>₹{y.MRP}</Text>
-                                        </View>
+                                    </View>
                                 </TouchableOpacity>
-                             
+
                             );
                         }
                         )
@@ -85,8 +86,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         marginVertical: 10,
     },
-    every:{
-        flex:1,
+    every: {
+        flex: 1,
         flexDirection: 'row',
         borderWidth: 2,
         borderColor: '#caa',
@@ -100,20 +101,20 @@ const styles = StyleSheet.create({
         borderColor: '#caa',
         borderWidth: 1,
     },
-    left:{
+    left: {
         flex: 1,
         margin: 5,
     },
-    middle:{
+    middle: {
         flex: 1.2,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',  
+        alignItems: 'center',
     },
-    right:{
+    right: {
         flex: 0.7,
         justifyContent: 'center',
-        alignItems: 'center',  
+        alignItems: 'center',
     },
     productName: {
         marginTop: 10,
